@@ -4,7 +4,7 @@ Create Realistic Airplane Models with Just a Few Taps
 
 ## For instructions
 ### Video
-<iframe src="//player.bilibili.com/player.html?isOutside=true&aid=335196547&bvid=BV1ZA411c7Vm&cid=400000944&p=1" scrolling="no" border="0" frameborder="no" framespacing="0" allowfullscreen="true"></iframe>
+[![Instruction Video](https://github.com/LANEING-AVIATION/ANGEL/blob/main/Homepage/Angel%20Video.png)](https://www.bilibili.com/video/BV1p84y1o7sj)
 
 ### Document
 [Angel Instruction Manual](https://github.com/LANEING-AVIATION/ANGEL/blob/main/Manual/Angel-Instruction.pdf)
@@ -14,29 +14,29 @@ Create Realistic Airplane Models with Just a Few Taps
 
 ## Previous Projects
 ### flexwise (2020)
-<iframe src="//player.bilibili.com/player.html?isOutside=true&aid=335196547&bvid=BV1ZA411c7Vm&cid=400000944&p=1" scrolling="no" border="0" frameborder="no" framespacing="0" allowfullscreen="true"></iframe>
+[![flexwise](https://github.com/LANEING-AVIATION/ANGEL/blob/main/Homepage/flexwise.png)](https://www.bilibili.com/video/BV1xZ4y1T7xX)
 
 ### SPACEDESK (2021)
-<iframe src="//player.bilibili.com/player.html?isOutside=true&aid=335196547&bvid=BV1ZA411c7Vm&cid=400000944&p=1" scrolling="no" border="0" frameborder="no" framespacing="0" allowfullscreen="true"></iframe>
+[![SPACEDESK](https://github.com/LANEING-AVIATION/ANGEL/blob/main/Homepage/SPACEDESK.png)](https://www.bilibili.com/video/BV1xZ4y1T7xX)
 
 ## Related Videos
 ### Dassault Falcon 8x
-<iframe src="//player.bilibili.com/player.html?isOutside=true&aid=316278847&bvid=BV14P411r7Xm&cid=1206151627&p=1" scrolling="no" border="0" frameborder="no" framespacing="0" allowfullscreen="true"></iframe>
+[![Dassault Falcon 8x](https://i.imgur.com/Ax9cvhX.png)](https://www.bilibili.com/video/BV14P411r7Xm)
 
 ### AVIC K-8
-<iframe src="//player.bilibili.com/player.html?isOutside=true&aid=701339636&bvid=BV1ym4y1L7KU&cid=1206122979&p=1" scrolling="no" border="0" frameborder="no" framespacing="0" allowfullscreen="true"></iframe>
+[![AVIC K-8](https://i.imgur.com/Xf1KL4H.png)](https://www.bilibili.com/video/BV1ym4y1L7KU)
 
 ### AVIC J-10
-<iframe src="//player.bilibili.com/player.html?isOutside=true&aid=360981179&bvid=BV1W94y1i7uw&cid=1195655456&p=1" scrolling="no" border="0" frameborder="no" framespacing="0" allowfullscreen="true"></iframe>
+[![AVIC J-10](https://i.imgur.com/ROQi1pM.png)](https://www.bilibili.com/video/BV1W94y1i7uw)
 
 ### COMAC ARJ21-700
-<iframe src="//player.bilibili.com/player.html?isOutside=true&aid=785943731&bvid=BV1N14y197dZ&cid=1195607796&p=1" scrolling="no" border="0" frameborder="no" framespacing="0" allowfullscreen="true"></iframe>
+[![COMAC ARJ21-700](https://i.imgur.com/OEjWBkR.png)](https://www.bilibili.com/video/BV1N14y197dZ)
 
 ### Tupolev Tu-95
-<iframe src="//player.bilibili.com/player.html?isOutside=true&aid=770755177&bvid=BV1Fr4y1E7MQ&cid=769085023&p=1" scrolling="no" border="0" frameborder="no" framespacing="0" allowfullscreen="true"></iframe>
+[![Tupolev Tu-95](https://i.imgur.com/KDrOa3P.png)](https://www.bilibili.com/video/BV1Fr4y1E7MQ)
 
 ### AVIC AC313A
-<iframe src="//player.bilibili.com/player.html?isOutside=true&aid=385711069&bvid=BV1AZ4y1Y7X1&cid=768308141&p=1" scrolling="no" border="0" frameborder="no" framespacing="0" allowfullscreen="true"></iframe>
+[![AVIC AC313A](https://i.imgur.com/Zv7LOcG.png)](https://www.bilibili.com/video/BV1AZ4y1Y7X1)
 
 ### Boeing 777-300er
-<iframe src="//player.bilibili.com/player.html?isOutside=true&aid=512132526&bvid=BV1Ag411d7Mk&cid=736674654&p=1" scrolling="no" border="0" frameborder="no" framespacing="0" allowfullscreen="true"></iframe>
+[![Boeing 777-300er](https://i.imgur.com/F9yZ1hg.png)](https://www.bilibili.com/video/BV1Ag411d7Mk)
