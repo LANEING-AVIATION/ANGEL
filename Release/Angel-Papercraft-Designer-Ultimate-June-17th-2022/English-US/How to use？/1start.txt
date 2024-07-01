@@ -1,0 +1,9 @@
+All apks must be installed (but do not install launcher on tablet devices)
+Adaptive devices: devices above Android 9 (including), including AOSP based devices (such as Hongmeng) and wsa devices (such as windows 11 Android subsystem)
+If your device is a tablet (the default screen direction is horizontal), please open the main program directly
+If your device is a mobile phone (the default screen direction is vertical), it is recommended to use launcher as a shortcut to open the main program (that is, click launcher to enter the software instead of clicking the icon of the main program)
+Opening the software for the first time will require authorization. Please grant the required permission.
+Be sure to restart the software after authorization
+Note: the copyright of this software belongs to Lanying airlines and other providers. It is strictly prohibited to infringe the copyright of Lanying Airlines software.
+Lanying airlines shall not be liable for any consequences arising from the user's use of Lanying aviation software or other circumstances.
+(end)

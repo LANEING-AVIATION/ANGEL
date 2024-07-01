@@ -1,0 +1,4 @@
+把样例文件导入/storage/emulated/0/SPACEDESK/SPACE/目录
+推荐使用数据线导入，因为安卓设备的文件管理似乎操作比较繁琐
+
+（完）

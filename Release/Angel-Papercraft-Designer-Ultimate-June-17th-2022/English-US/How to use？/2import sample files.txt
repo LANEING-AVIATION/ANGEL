@@ -1,0 +1,3 @@
+Import the sample file into the /storage/simulated/0/spacedesk/space/ directory
+It is recommended to use data line import, because the file management of Android devices seems to be cumbersome
+(end)

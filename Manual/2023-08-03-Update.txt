@@ -1,0 +1,10 @@
+Flatten background processes
+Full-screen adaptation
+Thumbnail storage update
+File starts loading during transition animation
+Discontinue compatibility with old devices
+Delete junk screenshot files
+Status bar display
+More direct and efficient startup process
+Remove unnecessary assets
+Monospace font
