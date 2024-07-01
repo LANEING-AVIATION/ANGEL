@@ -1,7 +1,7 @@
 # ANGEL
 
 ## Create Realistic Airplane Models with Just a Few Taps
-[![Instruction Video](https://github.com/LANEING-AVIATION/ANGEL/blob/main/Homepage/Cover.png)](https://www.bilibili.com/video/BV1p84y1o7sj)
+[![Instruction Video](https://github.com/LANEING-AVIATION/ANGEL/blob/main/Homepage/Boeing.png)](https://www.bilibili.com/video/BV1p84y1o7sj)
 
 ## For instructions
 ### Video
