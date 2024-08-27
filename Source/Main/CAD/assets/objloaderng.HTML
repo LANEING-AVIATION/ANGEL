@@ -1,0 +1,516 @@
+﻿<!DOCTYPE html>
+<html>
+    <head>
+	<style>
+		*{margin:0; padding:0;}
+	</style>
+        <script type="text/javascript" src="three.js"></script>
+        <script type="text/javascript" src="OBJLoader.js"></script>
+        <script type="text/javascript" src="LineMaterial.js"></script>
+        <script type="text/javascript" src="Wireframe.js"></script>
+        <script type="text/javascript" src="WireframeGeometry2.js"></script>
+        <script type="text/javascript" src="ArcballControls.js"></script>
+        
+        <script type="text/javascript">
+var renderer, scene, camera, banana;
+
+var ww = window.innerWidth,
+    wh = window.innerHeight;
+
+ function clearScene() {
+    cancelAnimationFrame(this.animationId);
+    this.scene.traverse((child) => {
+      if (child.material) {
+        child.material.dispose();
+      }
+      if (child.geometry) {
+        child.geometry.dispose();
+      }
+      child = null;
+    });
+    this.sceneDomElement.innerHTML = '';
+    this.renderer.forceContextLoss();
+    this.renderer.dispose();
+    this.scene.clear();
+    this.flows = [];
+    this.scene = null;
+    this.camera = null;
+    this.controls = null;
+    this.renderer.domElement = null;
+    this.renderer = null;
+    this.sceneDomElement = null;
+    console.log('clearScene');
+  }
+
+
+function createMesh(geom) {
+
+        //设置当前的模型矩阵沿y轴负方向偏移20
+        geom.applyMatrix(new THREE.Matrix4().makeTranslation(0, -100, 0));
+
+        // 创建法向量纹理
+        var meshMaterial = new THREE.MeshNormalMaterial({
+            flatShading: THREE.FlatShading,
+            transparent: true,
+            opacity: 0.7
+        });
+
+        //  创建一个线框纹理
+        var wireFrameMat = new THREE.MeshBasicMaterial();
+        wireFrameMat.wireframe = true;
+
+        // 创建模型
+        var mesh = THREE.SceneUtils.createMultiMaterialObject(geom, [meshMaterial,wireFrameMat]);
+
+        return mesh;
+    }
+    
+function initinper() {
+
+    renderer = new THREE.WebGLRenderer({
+        canvas: document.getElementById('scene')
+    });
+    renderer.setClearColor('rgba(0,43,54,1)',1.0);
+    renderer.setSize(ww, wh);
+
+    scene = new THREE.Scene();
+    name = "";
+    camera = new THREE.OrthographicCamera(window.innerWidth/-2,window.innerWidth/2,window.innerHeight/2,window.innerHeight/-2,-10000,400000);
+    cameraa = new THREE.OrthographicCamera(window.innerWidth/-1,window.innerWidth/1,window.innerHeight/1,window.innerHeight/-1,-10000,400000);
+    camerab = new THREE.OrthographicCamera(window.innerWidth/-2,window.innerWidth/2,window.innerHeight/2,window.innerHeight/-2,-10000,400000);
+    camerac = new THREE.OrthographicCamera(window.innerWidth/-4,window.innerWidth/4,window.innerHeight/4,window.innerHeight/-4,-10000,400000);
+    cameraBIG = new THREE.OrthographicCamera(window.innerWidth/-1,window.innerWidth/1,window.innerHeight/1,window.innerHeight/-1,-10000,400000);
+    cameraSMA = new THREE.OrthographicCamera(window.innerWidth/-4,window.innerWidth/4,window.innerHeight/4,window.innerHeight/-4,-10000,400000);
+    cameraPER = new THREE.PerspectiveCamera(50, ww / wh, 0.1, 10000);
+    camera.zoom = 0.05;
+    camera.position.set(0, 0, 150);
+	camera.lookAt(new THREE.Vector3(0, 0, 0));
+    scene.add(camera);
+    //Add a light in the scene
+    directionalLight = new THREE.DirectionalLight(0xffffff, 0.8);
+    directionalLight.position.set(0, 0, 0);
+    directionalLight.lookAt(new THREE.Vector3(-1, 0, 0));
+    scene.add(directionalLight);
+
+    //controls = new ArcballControls( camera, renderer.domElement, scene );
+    //controls.addEventListener( 'change', render );
+    //this.gizmoVisible = true;
+    //this.populateGui();
+    
+    //scene.add(directionalLight);
+
+    //Load the obj file
+    //loadObj("ninjaHead_Low.obj");
+    var helper = new THREE.GridHelper(12000, 2, 0xFF4444, 'rgba(0,64,82,0.2)' );
+    scene.add(helper);
+
+        // 构造线段
+    var lineGeometry = new THREE.Geometry();
+    lineGeometry.vertices.push(new THREE.Vector3(-200, -200, -200));
+    lineGeometry.vertices.push(new THREE.Vector3(200, 200, 200));
+
+    var lineMaterial = new THREE.LineDashedMaterial({
+            color : 0x9B30FF
+        });
+    var line = new THREE.Line(lineGeometry, lineMaterial);
+    // 计算线条间的距离
+    line.computeLineDistances();
+    scene.add(line);
+}
+
+var material = new THREE.MeshBasicMaterial({
+        side: THREE.DoubleSide,
+        color:'rgba(113,185,249,1)',
+ });
+var wireframematerial = new THREE.MeshBasicMaterial({
+        side: THREE.DoubleSide,
+        opacity: 1.0
+ });
+
+ //var wireframematerial = new LineMaterial( {
+    //color: 0x4080ff,
+    //linewidth: 5, // in pixels
+    //dashed: false
+//} );
+
+ //var wireframematerial = new THREE.LineMaterial( {
+        //color:'rgba(99,124,28,1)',
+        //linewidth: 5, // in pixels
+        //dashed: false
+//} );
+
+
+var manager = new THREE.LoadingManager();
+    //Loader for Obj from Three.js
+var loader = new THREE.OBJLoader(manager);
+    //Launch loading of the obj file, addBananaInScene is the callback when it's ready
+var loadObj = function(obj) {
+	
+    //Manager from ThreeJs to track a loader and its status
+    loader.load(obj, function(object){
+     material.wireframe  = false;
+     object.children[0].material = material;
+     object.children[0].name = name;
+     object.name = name;
+     scene.add(object);
+    loader.load(obj, classadd);
+    });
+
+};
+
+
+var classload = function(obj) {
+    loader.load(obj, classadd);
+
+};
+
+
+var classadd = function(object) {
+    render();
+    renderer.setClearColor('rgba(0,43,54,1)',1.0);
+    /////牛牛加线框代码-开始
+	var geometry=object.children[0].geometry;
+	var material=wireframematerial;
+	var mesh = new THREE.Mesh(geometry, material);
+	mesh.material.wireframe  = true; //显示线框
+    mesh.material.wireframecolor  = 'rgba(255,255,0,1)';
+    mesh.material.wireframeLinewidth  = 2; //线框粗细
+	scene.add(mesh);
+	/////牛牛加线框代码-结束
+};
+
+
+
+    
+var image = "";
+var x = 0;
+var y = 0;
+var z = 0;
+var Ax = 0;
+var Ay = 0;
+var Az = 0;
+var scale = 0.1;
+var sideoption = THREE.BackSide;
+var cube = "";
+var renderEnabled = true;
+var render = function() {
+     camera.rotation.y = Ay;
+     camera.rotation.z = Az;
+     camera.rotation.x = Ax;
+     camera.zoom = 0.5;
+     camera.position.set(x, y, z);
+     renderer.render(scene, camera);
+};
+var renderPER = function() {
+     cameraPER.rotation.y = Ay;
+     cameraPER.rotation.z = Az;
+     cameraPER.rotation.x = Ax;
+     cameraPER.position.set(x, y, z);
+     renderer.render(scene, cameraPER);
+};
+
+
+
+var signcube = function(obj) {
+    var manager = new THREE.LoadingManager();
+    var loader = new THREE.OBJLoader(manager);
+    loader.load(obj, cubeload);
+};
+
+var cubeload = function(object) {
+    render();
+	var geometry=object.children[0].geometry;
+	var material= wireframematerial;
+	var cube = new THREE.Mesh(geometry, material);
+	mesh.material.wireframe  = true; 
+	scene.add(mesh);
+};
+
+var hidecube = function() {
+    scene.remove(cube);
+};
+
+var captured = function(){
+      renderer.render(scene, camera);
+						let dataURL = '';
+						dataURL = renderer.domElement.toDataURL("image/JPEG");
+      window.AppInventor.setWebViewString(dataURL);
+};
+
+var TEXT = function(){
+    var txt = JSON.stringify(scene.toJSON());
+    window.AppInventor.setWebViewString(txt);
+};
+
+
+
+    // 定义一个函数来计算向量叉积
+var crossProduct = function(v1, v2) {
+  return new THREE.Vector3(
+    v1.y * v2.z - v1.z * v2.y,
+    v1.z * v2.x - v1.x * v2.z,
+    v1.x * v2.y - v1.y * v2.x
+  );
+}
+// 定义一个函数来计算向量减法
+var vectorSubtract = function(v1, v2) {
+  return new THREE.Vector3(
+    v1.x - v2.x,
+    v1.y - v2.y,
+    v1.z - v2.z
+  );
+}
+// 定义一个函数来计算点到直线的距离
+//var pointToTwoPointsDistance = function(point, linePoint, lineDir) {
+ // var v = vectorSubtract(point, linePoint);
+ // var u = crossProduct(v, lineDir);
+ // return u.length() / lineDir.length();
+//}
+// 定义一个函数来计算点到两个点的距离之和
+var pointToTwoPointsDistance = function(point, point1, point2) {
+  return point.distanceTo(point1) + point.distanceTo(point2);
+}
+
+var minDistancePointVVV = function(linePoint, lineDir, point1, point2) {
+  // 使用牛顿法求解最小值
+  // 定义一个函数来计算目标函数的值，即点到两个定点的距离之和
+  function objective(t) {
+    var p = new THREE.Vector3();
+    p.x = linePoint.x + t * lineDir.x;
+    p.y = linePoint.y + t * lineDir.y;
+    p.z = linePoint.z + t * lineDir.z;
+    return pointToTwoPointsDistance(p, point1, point2);
+  }
+  // 定义一个函数来计算目标函数的导数，即点到两个定点的距离之和对t的偏导数
+  function derivative(t) {
+    // 使用有限差分法近似导数
+    var epsilon = 0.1;
+    return (objective(t + epsilon) - objective(t)) / epsilon;
+  }
+  // 定义一个初始值
+  var t0 = 0;
+  // 定义一个容差
+  var epsilon = 0.1;
+  // 定义一个迭代次数上限
+  var maxIter = 1000;
+  // 进行迭代
+  for (var i = 0; i < maxIter; i++) {
+    var t1 = t0 - objective(t0) / derivative(t0);
+    //window.AppInventor.setWebViewString(t1);
+    if (Math.abs(t1 - t0) < epsilon) {
+      break;
+    }
+    t0 = t1;
+  }
+  // 返回最小距离点
+  var minPoint = new THREE.Vector3();
+  minPoint.x = linePoint.x + t0 * lineDir.x;
+  minPoint.y = linePoint.y + t0 * lineDir.y;
+  minPoint.z = linePoint.z + t0 * lineDir.z;
+  return minPoint;
+}
+
+
+
+
+
+
+// 定义一个函数来计算两个点之间的距离
+//var distance = function(point1, point2) {
+ // var dx = point1.x - point2.x;
+ // var dy = point1.y - point2.y;
+ // var dz = point1.z - point2.z;
+ // return Math.sqrt(dx * dx + dy * dy + dz * dz);
+//}
+
+// 定义一个函数来计算一个点到两个点的距离平方和
+//var pointToTwoPointsDistance = function(point, point1, point2) {
+ // return distance(point, point1) * distance(point, point1) + distance(point, point2) * distance(point, point2);
+//}
+
+// 定义一个函数来比较两个点的横坐标
+//var compareX = function(point1, point2) {
+ // return point1.x - point2.x;
+//}
+
+// 定义一个函数来比较两个点的纵坐标
+//var compareY = function(point1, point2) {
+ // return point1.y - point2.y;
+//}
+
+// 定义一个函数来求解最小距离点，它接受四个参数：linePoint 是直线上的一个点，lineDir 是直线的方向向量，point1 和 point2 是两个给定的点。
+//var minDistancePoint = function(linePoint, lineDir, point1, point2) {
+  // 使用分治法求解最小值
+  // 定义一个数组来存储所有的点
+ // var points = [linePoint, point1, point2];
+  // 按照横坐标排序
+//  points.sort(compareX);
+  // 定义一个函数来递归求解最小值
+ // function divideAndConquer(left, right) {
+    // 如果只有一个点，直接返回该点
+ //   if (left == right) {
+ //     return points[left];
+ //   }
+    // 如果有两个点，返回距离较小的那个点
+ //   if (left + 1 == right) {
+  //    if (pointToTwoPointsDistance(points[left], point1, point2) < pointToTwoPointsDistance(points[right], point1, point2)) {
+  ///      return points[left];
+  //    } else {
+  //      return points[right];
+  //    }
+   // }
+    // 如果有三个或以上的点，用一条竖直的线 L 将所有的点分成两等份
+   // var mid = Math.floor((left + right) / 2);
+    //var L = points[mid].x;
+    // 递归求出左半部分的最近两点距离 d1，右半部分的最近两点距离 d2，取 d = min(d1, d2)
+   // var leftPoint = divideAndConquer(left, mid);
+   // var rightPoint = divideAndConquer(mid + 1, right);
+   // var d = Math.min(pointToTwoPointsDistance(leftPoint, point1, point2), pointToTwoPointsDistance(rightPoint, point1, point2));
+    // 算出“一个在左半部分，另一个在右半部分”这样的点对的最短距离 d3
+  //  var d3 = Infinity;
+   // var minPoint = null;
+    // 只需要考虑与 L 的距离小于 d 的点，并且每个点只需要与它后面最多 7 个点比较
+   // for (var i = left; i <= right; i++) {
+  //    if (Math.abs(points[i].x - L) < d) {
+  //      for (var j = i + 1; j <= right && j <= i + 7; j++) {
+  //        if (Math.abs(points[j].x - L) < d) {
+  //          var dist = pointToTwoPointsDistance(points[i], points[j], lineDir);
+   //         if (dist < d3) {
+   //           d3 = dist;
+  //            minPoint = points[i];
+   //         }
+   //       }
+   //     }
+   //   }
+  //  }
+    // 结果为 min(d1, d2, d3)
+   // if (d3 < d) {
+   //   return minPoint;
+   // } else {
+  //    if (pointToTwoPointsDistance(leftPoint, point1, point2) < pointToTwoPointsDistance(rightPoint, point1, point2)) {
+   //     return leftPoint;
+   //   } else {
+   //     return rightPoint;
+   //   }
+  //  }
+//  }
+  // 返回最小距离点
+ // var result = divideAndConquer(0, points.length - 1);
+  // 把返回的数据放在THREE.Vector3();对象中
+ // return new THREE.Vector3(result.x, result.y, result.z);
+//}
+
+
+
+// 定义一个函数来计算两个面所在平面的交线上与两个点距离之和最小的点
+var findMinDistancePoint = function(v1a, v1b, v1c, v2a, v2b, v2c, point1, point2) {
+  // 计算两个面的法向量
+  var n1 = crossProduct(vectorSubtract(v1b, v1a), vectorSubtract(v1c, v1a));
+  var n2 = crossProduct(vectorSubtract(v2b, v2a), vectorSubtract(v2c, v2a));
+  
+   // 计算两个平面的方程常数项
+  var d1 = -n1.x * v1a.x - n1.y * v1a.y - n1.z * v1a.z;
+  var d2 = -n2.x * v2a.x - n2.y * v2a.y - n2.z * v2a.z;
+  
+   // 计算交线的方向向量
+  var lineDir = crossProduct(n1, n2);
+  
+   // 计算交线上的一个点（假设x = 0）
+  var linePoint = new THREE.Vector3();
+  linePoint.x = 0;
+  linePoint.y = (n1.z * d2 - n2.z * d1) / (n1.y * n2.z - n2.y * n1.z);
+  linePoint.z = (n1.y * d2 - n2.y * d1) / (n2.x * n1.y - n1.x * n2.y);
+  
+   // 调用函数，返回结果
+  //return minDistancePointVVV(linePoint, lineDir, point1, point2);
+}
+// 调用函数，输出结果
+
+
+
+var image;
+
+var BG = function () {
+    var loader = new THREE.TextureLoader();
+    var texture = loader.load(
+        image
+        //'data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACIAAAAmCAYAAACh1knUAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAAaFSURBVFhHfZhNj1RVEIbrdg8zIz0DI6Au+JAgISIZUWPiyrB1hws3Jm5M3Jr4D/wDJiYudGPiwh/gF0RXJibujKAkJog6DISgDgzDKPPRfbvvtZ665719pgFfU1SdOnWq3lPn9Okei2ur5+rRaGR1XVtRFAbQjHNbc1VVWafTCd3tdkNrTnFaK+BDqMPaPB/j4XBoHSbl1AIF5rYKUlzANwmRII4iCOvA1NRUa7M2b0AnLwLQsnNCYq45oDkRIkagCH5yqCBjxSpnu5YA2KuoFmOjcyFOHUSEPCHQnHJonJOQCMXy7a9qAnC27NZ+sXr5G3NP+EmWo+gdtOFTr1lnaqZNpvU6CuXSJvApFmDjb8ldvfWlj8eFsLvfvmm2vZY8D0DHO3jkFbNn3rK6aO6BimlTjBHNyUbicroGLXl1BChB5/zZGP8fquk5sxNvWDF/ONb4al/fzDHEbglViaT766nd1lk4FgR01OhiaeWLHX2PpOdetVHD7aHo7T9me544aQU7qz249ruD9uPElq5jLvlc+q7WT78bOQD1IBlE2kHawV+fnrWNbYJSdIb5hcfs+LNnbN/jh/ymb3jQwEWFWDAu6v/sHPt8XY1s+cjbpNqB4qoTiV05ROjAn99bb34vnpTAkxl62IxHm2blnWYchZgnVoU1zjV+5msn8o7rBqrJFbdqNAyHJnqz3o7tJbOtP1yuuu2ydc31dZcbZoMVD6QTTsp3ON5xJg/zI9yfTnppu94EH/uweR+CtQtjK9c9kRdCKFiVmUZISLzr6FSzdux3wa/u5H63uahseGrXVOj4NNEWPVJqU5NciZKt5LlfJHb4Oa7k19o2D51n3k2vhYD4CEd7nJEm4qOstkqr0KQ/L9b6J3zJzyWFRD0quQ1ek43z5kDFu5I/7003AMlc2p2l5Pf5UyHFTMa7riu60BwpNl2hTsX74A0J7YjvGh1LvHCQyQuoG217H+IXCUufLHafChtksJPmgQPtxn0YRCTjiVQEmTwOEdAxyB9CsdSFELpQuisfe4wjusI1SHZcVnVDt9mjk3hy37F/B/hLO7SyHFk5GNpgULokXSa7X1rfx/3BIPylf5/Es0BhCLYdKqMW4FrILpZvNS8r0KV98ubHiQidquzeZmlL63N25d4+G7JxwluyDfnxU84TUNncTGWLj960g7vXrdtpNlenzt049UHUy+v6y/p5nXeDX1GHr3/k0w2R/mBkX18/ZO+vvm6/jo43RDjjOAL/ocNlS7b/5ow5PiFdP4Yze360905+Ykfn14IcJCB8c/HDOA4dD/WjLxCIc3IHH+eGhIvfB9p9fvNlu1w6Ca6AF65puzNCGluCr9G+zL5bXbQLa4c9Z340LlRwAno6gkx4Hbor6Obisbsm+G5/1kn47r1I/e+61XduuayEtrXbZndXrUDW71jxj/+O6feD4HZZ2Eafj2pDIt4RLqzXiS4kEtEEERDCTkQaMi6eSLuuvUi1tWn11lZItT3WYaPLQXSlKn1NkEifFsigJxDEMCAjZoF06USm4uzjGNye7Vm194CNQvbbaN4vMDLn0luwcveCH6j/mQFp1nDU0Y2GTP7EU1OIdwSIRLSrhh8kmh2QrEmcuhKkdtqN7LRjnhwUT2QqeyRqqBaAQ3xqNNDErH/dd0feYv+vLCv74e4xWxnuI8hnuUOYXlRj31kk89+vHCVxmnp+z2U7Oue/XWLof1pML9ig93S8ITqF0CICCXVH+r4jm8CD/NqQ2k7MZF7V0hw6LitgIcKEikdA6hLAlh9pk6TEiEhIywfyfPiB8gQRPbVyKkDksDXO5wFjFcaX/7ZR+/Mc+dwOgvyNQaAeFyUUJm2SqLhsjRUj4OOlVkGgOLRygPg9oknthoX48qRAiwQVEHlJvilsrVNOrZMfXSz9/VmdJ1GwgmQjJIhF7vv5whW76DL0b2QwPb3LXnzppJ1abP54AsTLFhiLiEC+8GAgQr5YxEQCoC/99HuQkK/fH9ili7/FWKIOK7dsjRXHOIgwAGLLuYIISARESItPv3DC48b/r2RmZtoWnzveJgYcOyCH1k760EH42u3xH+FKoDHFdYc0J1tJiOXCQz4nK2is9djEiYh87ROPVlCeTP4czCPsREm1ThoBD8qTk9BmXDcXR0noABOM1UbsPAmARA751UEVzvMAFVZO8jDfYRFgAqgAQZrLobicJKLiaMUAfAiABPM6RvzN2sr+A4GhI+MjGIAvAAAAAElFTkSuQmCC'
+    );
+    scene.background = texture;
+};
+var pointold
+
+var faceold = 1
+var lastapoint = -1
+var lastbpoint = "0"
+var lastcpoint = "0"
+
+var Raycast = function (xaxis,yaxis) {
+    var mouse = new THREE.Vector2();
+    mouse.x = (xaxis / ww) * 2 - 1;
+    mouse.y = -(yaxis / wh) * 2 + 1;
+
+    // 创建一个指向相机方向的新射线检测器
+    var raycasterFront = new THREE.Raycaster();
+    raycasterFront.setFromCamera(mouse, camera);
+    // 创建一个指向相机反方向的新射线检测器
+    var raycasterBack = new THREE.Raycaster();
+    raycasterBack.setFromCamera(mouse, camera);
+    raycasterBack.ray.direction.z = -1*raycasterBack.ray.direction.z;
+    raycasterBack.ray.direction.x = -1*raycasterBack.ray.direction.x;
+    raycasterBack.ray.direction.y = -1*raycasterBack.ray.direction.y;
+
+    // 合并两个射线检测器的结果
+    var intersects = raycasterBack.intersectObjects(scene.children, true).concat(raycasterFront.intersectObjects(scene.children, true));
+
+ 
+    if (intersects.length > 0) {
+        window.AppInventor.setWebViewString("start");
+        window.AppInventor.setWebViewString(intersects[0].object.name);
+        window.AppInventor.setWebViewString(intersects[0].point.x);
+        window.AppInventor.setWebViewString(intersects[0].point.y);
+        window.AppInventor.setWebViewString(intersects[0].point.z);
+        window.AppInventor.setWebViewString(intersects[0].faceIndex);
+        var intersect = intersects[0];
+        var geometry = intersect.object.geometry;
+        if(lastapoint < 0) {
+          lastapoint = intersects[0].face.a;
+          lastbpoint = intersects[0].face.b;
+          lastcpoint = intersects[0].face.c;
+          pointold = intersects[0].point;
+        }
+        var vertexa = new THREE.Vector3(); // 创建一个临时的向量对象
+        vertexa.fromBufferAttribute(geometry.attributes.position, intersects[0].face.a); // 从position属性中获取顶点的坐标
+        var vertexb = new THREE.Vector3(); // 创建一个临时的向量对象
+        vertexb.fromBufferAttribute(geometry.attributes.position, intersects[0].face.b); // 从position属性中获取顶点的坐标
+        var vertexc = new THREE.Vector3(); // 创建一个临时的向量对象
+        vertexc.fromBufferAttribute(geometry.attributes.position, intersects[0].face.c); // 从position属性中获取顶点的坐标
+
+        var vertexd = new THREE.Vector3(); // 创建一个临时的向量对象
+        vertexd.fromBufferAttribute(geometry.attributes.position, lastapoint); // 从position属性中获取顶点的坐标
+        var vertexe = new THREE.Vector3(); // 创建一个临时的向量对象
+        vertexe.fromBufferAttribute(geometry.attributes.position, lastbpoint); // 从position属性中获取顶点的坐标
+        var vertexf = new THREE.Vector3(); // 创建一个临时的向量对象
+        vertexf.fromBufferAttribute(geometry.attributes.position, lastcpoint); // 从position属性中获取顶点的坐标
+           var result = findMinDistancePoint(vertexa, vertexb, vertexc, vertexd, vertexe, vertexf, intersects[0].point, pointold);
+        pointold = intersects[0].point;
+        lasta = intersects[0].face.a;
+        lastb = intersects[0].face.b;
+        lastc = intersects[0].face.c;
+        window.AppInventor.setWebViewString(result.x);
+        window.AppInventor.setWebViewString(result.y);
+        window.AppInventor.setWebViewString(result.z);
+  }
+}
+
+
+
+
+        </script>
+    </head>
+    
+    <body onload="init()">
+        <canvas id="scene"></canvas>
+
+    </body>
+</html>

@@ -1,0 +1,203 @@
+﻿<!DOCTYPE html>
+<html>
+    <head>
+	<style>
+		*{margin:0; padding:0;}
+	</style>
+        <script type="text/javascript" src="three.js"></script>
+        <script type="text/javascript" src="OBJLoader.js"></script>
+        
+        <script type="text/javascript">
+var renderer, scene, camera, banana;
+
+var ww = window.innerWidth,
+    wh = window.innerHeight;
+ function clearScene() {
+    cancelAnimationFrame(this.animationId);
+    this.scene.traverse((child) => {
+      if (child.material) {
+        child.material.dispose();
+      }
+      if (child.geometry) {
+        child.geometry.dispose();
+      }
+      child = null;
+    });
+    this.sceneDomElement.innerHTML = '';
+    this.renderer.forceContextLoss();
+    this.renderer.dispose();
+    this.scene.clear();
+    this.flows = [];
+    this.scene = null;
+    this.camera = null;
+    this.controls = null;
+    this.renderer.domElement = null;
+    this.renderer = null;
+    this.sceneDomElement = null;
+    console.log('clearScene');
+  }
+    
+function initinper() {
+
+    renderer = new THREE.WebGLRenderer({
+        canvas: document.getElementById('scene'),
+        antialias: true, 
+        alpha: true,
+    });
+    //renderer.setClearColor('rgba(0,43,54,1)',1.0);
+    renderer.setSize(ww, wh);
+
+    scene = new THREE.Scene();
+
+    camera = new THREE.OrthographicCamera(window.innerWidth/-1,window.innerWidth/1,window.innerHeight/1,window.innerHeight/-1,-10000,400000);
+    cameraa = new THREE.OrthographicCamera(window.innerWidth/-1,window.innerWidth/1,window.innerHeight/1,window.innerHeight/-1,-10000,400000);
+    camerab = new THREE.OrthographicCamera(window.innerWidth/-2,window.innerWidth/2,window.innerHeight/2,window.innerHeight/-2,-10000,400000);
+    camerac = new THREE.OrthographicCamera(window.innerWidth/-4,window.innerWidth/4,window.innerHeight/4,window.innerHeight/-4,-10000,400000);
+    cameraBIG = new THREE.OrthographicCamera(window.innerWidth/-1,window.innerWidth/1,window.innerHeight/1,window.innerHeight/-1,-10000,400000);
+    cameraSMA = new THREE.OrthographicCamera(window.innerWidth/-4,window.innerWidth/4,window.innerHeight/4,window.innerHeight/-4,-10000,400000);
+    cameraPER = new THREE.PerspectiveCamera(50, ww / wh, 0.1, 10000);
+    camera.zoom = 0.1;
+    camera.position.set(0, 0, 150);
+	camera.lookAt(new THREE.Vector3(0, 0, 0));
+    scene.add(camera);
+    //Add a light in the scene
+    directionalLight = new THREE.DirectionalLight('rgba(200,200,0,1)', 0.8);
+    directionalLight.position.set(0, 0, 0);
+    directionalLight.lookAt(new THREE.Vector3(-1, 0, 0));
+    scene.add(directionalLight);
+    
+    //scene.add(directionalLight);
+
+    //Load the obj file
+    //loadObj("ninjaHead_Low.obj");
+        var helper = new THREE.GridHelper(1200, 60, 0xFF4444, 'rgba(200,200,0,1)' );
+}
+
+var material = new THREE.MeshBasicMaterial({
+        side: THREE.DoubleSide,
+        color:'rgba(113,185,249,1)',
+ });
+
+var wireframematerial = new THREE.MeshBasicMaterial({
+        side: THREE.DoubleSide,
+        opacity: 1.0,
+        color: 0x00ff00, 
+        wireframe: true
+ });
+
+var manager = new THREE.LoadingManager();
+    //Loader for Obj from Three.js
+var loader = new THREE.OBJLoader(manager);
+    //Launch loading of the obj file, addBananaInScene is the callback when it's ready
+var loadObj = function(obj) {
+	
+    //Manager from ThreeJs to track a loader and its status
+    loader.load(obj, function(object){
+     //material.wireframe  = false;
+     object.children[0].material = material;
+    loader.load(obj, classadd);
+    });
+
+};
+
+
+var classload = function(obj) {
+    loader.load(obj, classadd);
+
+};
+
+
+
+var classadd = function(object) {
+    render();
+    renderer.setClearColor('rgba(0,43,54,1)',1.0);
+    /////牛牛加线框代码-开始
+	var geometry=object.children[0].geometry;
+	var material=wireframematerial;
+	var mesh = new THREE.Mesh(geometry, material);
+	mesh.material.wireframe  = true; //显示线框
+    //mesh.material.wireframecolor  = 'rgba(255,255,0,1)';
+    mesh.material.wireframeLinewidth  = 2; //线框粗细
+	scene.add(mesh);
+	/////牛牛加线框代码-结束
+};
+
+
+
+    
+var image = "";
+var x = 0;
+var y = 0;
+var z = 0;
+var Ax = 0;
+var Ay = 0;
+var Az = 0;
+var scale = 0.1;
+var sideoption = THREE.BackSide;
+var cube = "";
+var renderEnabled = true;
+var render = function() {
+     camera.rotation.y = Ay;
+     camera.rotation.z = Az;
+     camera.rotation.x = Ax;
+     camera.position.set(x, y, z);
+     renderer.setClearColor('rgba(0,43,54,1)',1.0);
+     renderer.render(scene, camera);
+
+};
+var renderPER = function() {
+     cameraPER.rotation.y = Ay;
+     cameraPER.rotation.z = Az;
+     cameraPER.rotation.x = Ax;
+     cameraPER.position.set(x, y, z);
+     renderer.setClearColor('rgba(0,43,54,1)',1.0);
+     renderer.render(scene, cameraPER);
+};
+
+
+
+var signcube = function(obj) {
+    var manager = new THREE.LoadingManager();
+    var loader = new THREE.OBJLoader(manager);
+    loader.load(obj, cubeload);
+};
+
+var cubeload = function(object) {
+    render();
+	var geometry=object.children[0].geometry;
+	var material= wireframematerial;
+	var cube = new THREE.Mesh(geometry, material);
+	mesh.material.wireframe  = true; 
+	scene.add(mesh);
+};
+
+var hidecube = function() {
+    scene.remove(cube);
+};
+
+var captured = function(){
+      renderer.render(scene, camera);
+						let dataURL = '';
+						dataURL = renderer.domElement.toDataURL("image/JPEG");
+      window.AppInventor.setWebViewString(dataURL);
+};
+
+var image;
+
+var BG = function () {
+    var loader = new THREE.TextureLoader();
+    var texture = loader.load(
+        image
+        //'data:image/png;base64,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'
+    );
+    scene.background = texture;
+};
+
+
+        </script>
+    </head>
+    <body onload="init()">
+        <canvas id="scene"></canvas>
+
+    </body>
+</html>

@@ -1,0 +1,426 @@
+[{
+ "categoryString": "EXTENSION",
+ "dateBuilt": "2019-12-04T15:47:03+0100",
+ "nonVisible": "true",
+ "iconName": "http://icons.iconarchive.com/icons/custom-icon-design/pretty-office-13/24/Signal-Tower-icon.png",
+ "methods": [
+  {
+   "deprecated": "false",
+   "name": "AboutThisExtension",
+   "description": "About this Extension",
+   "params": []
+  },
+  {
+   "deprecated": "false",
+   "name": "AndroidVersion",
+   "description": "Get device Android Version.",
+   "params": [],
+   "returnType": "text"
+  },
+  {
+   "deprecated": "false",
+   "name": "Board",
+   "description": "Get Board Info.",
+   "params": [],
+   "returnType": "text"
+  },
+  {
+   "deprecated": "false",
+   "name": "Bootloader_Version",
+   "description": "Get system Bootloader Version.",
+   "params": [],
+   "returnType": "text"
+  },
+  {
+   "deprecated": "false",
+   "name": "Brand",
+   "description": "Get device Brand.",
+   "params": [],
+   "returnType": "text"
+  },
+  {
+   "deprecated": "false",
+   "name": "BuildNumber",
+   "description": "Get device Software Build Number.",
+   "params": [],
+   "returnType": "text"
+  },
+  {
+   "deprecated": "false",
+   "name": "DeviceCountry",
+   "description": "Get device Country Code.",
+   "params": [],
+   "returnType": "text"
+  },
+  {
+   "deprecated": "false",
+   "name": "DeviceLanguage",
+   "description": "Get device Language Code.",
+   "params": [],
+   "returnType": "text"
+  },
+  {
+   "deprecated": "false",
+   "name": "DeviceName",
+   "description": "Get device Name.",
+   "params": [],
+   "returnType": "text"
+  },
+  {
+   "deprecated": "false",
+   "name": "DeviceTimeZone",
+   "description": "Get Device Time Zone.",
+   "params": [],
+   "returnType": "text"
+  },
+  {
+   "deprecated": "false",
+   "name": "ExternalStorageAvailable",
+   "description": "Returns available size of external storage in Gigabytes",
+   "params": [],
+   "returnType": "number"
+  },
+  {
+   "deprecated": "false",
+   "name": "ExternalStorageTotal",
+   "description": "Returns total external storage size in Gigabytes",
+   "params": [],
+   "returnType": "number"
+  },
+  {
+   "deprecated": "false",
+   "name": "ExternalStorageUsed",
+   "description": "Returns size of used-external-storage in Gigabytes",
+   "params": [],
+   "returnType": "number"
+  },
+  {
+   "deprecated": "false",
+   "name": "Fingerprint",
+   "description": "A string that uniquely identifies this build.",
+   "params": [],
+   "returnType": "text"
+  },
+  {
+   "deprecated": "false",
+   "name": "GetCarrierName",
+   "description": "Get device Carrier Name",
+   "params": [],
+   "returnType": "text"
+  },
+  {
+   "deprecated": "false",
+   "name": "GetDeviceID",
+   "description": "Get device ID / IMEI",
+   "params": [],
+   "returnType": "text"
+  },
+  {
+   "deprecated": "false",
+   "name": "GetDeviceSoftwareVersion",
+   "description": "Returns the software version number for the device, for example, the IMEI/SV for GSM phones.",
+   "params": [],
+   "returnType": "text"
+  },
+  {
+   "deprecated": "false",
+   "name": "GetIPAddress",
+   "description": "Get Wifi IP address",
+   "params": [],
+   "returnType": "text"
+  },
+  {
+   "deprecated": "false",
+   "name": "GetMacAddress",
+   "description": "Get Wifi MAC address",
+   "params": [],
+   "returnType": "text"
+  },
+  {
+   "deprecated": "false",
+   "name": "GetPhoneNumber",
+   "description": "Get Device Phone Number (Line 1 Number)",
+   "params": [],
+   "returnType": "text"
+  },
+  {
+   "deprecated": "false",
+   "name": "GetWifiBSSID",
+   "description": "Get Wifi BSSID",
+   "params": [],
+   "returnType": "text"
+  },
+  {
+   "deprecated": "false",
+   "name": "GetWifiFrequency",
+   "description": "Get Wifi Frequency",
+   "params": [],
+   "returnType": "number"
+  },
+  {
+   "deprecated": "false",
+   "name": "GetWifiLinkSpeed",
+   "description": "Get Wifi LinkSpeed",
+   "params": [],
+   "returnType": "number"
+  },
+  {
+   "deprecated": "false",
+   "name": "GetWifiSSID",
+   "description": "Get Wifi SSID",
+   "params": [],
+   "returnType": "text"
+  },
+  {
+   "deprecated": "false",
+   "name": "GoHome",
+   "description": "Go to Home page of your device without quitting app.",
+   "params": []
+  },
+  {
+   "deprecated": "false",
+   "name": "Hardware",
+   "description": "Get device Hardware Name.",
+   "params": [],
+   "returnType": "text"
+  },
+  {
+   "deprecated": "false",
+   "name": "Id",
+   "description": "Get device Build ID.",
+   "params": [],
+   "returnType": "text"
+  },
+  {
+   "deprecated": "false",
+   "name": "InternalStorageAvailable",
+   "description": "Returns size of available internal storage in Gigabytes",
+   "params": [],
+   "returnType": "number"
+  },
+  {
+   "deprecated": "false",
+   "name": "InternalStorageTotal",
+   "description": "Returns total size of internal storage in Gigabytes",
+   "params": [],
+   "returnType": "number"
+  },
+  {
+   "deprecated": "false",
+   "name": "InternalStorageUsed",
+   "description": "Returns size of used-internal-storage in Gigabytes",
+   "params": [],
+   "returnType": "number"
+  },
+  {
+   "deprecated": "false",
+   "name": "LaunchApp",
+   "description": "Launch App",
+   "params": [{
+    "name": "packageName",
+    "type": "text"
+   }]
+  },
+  {
+   "deprecated": "false",
+   "name": "Manufacturer",
+   "description": "Get device manufacturer.",
+   "params": [],
+   "returnType": "text"
+  },
+  {
+   "deprecated": "false",
+   "name": "MemoryFree",
+   "description": "Total free RAM size in Gigabytes",
+   "params": [],
+   "returnType": "number"
+  },
+  {
+   "deprecated": "false",
+   "name": "MemoryTotal",
+   "description": "Total RAM size in Gigabytes",
+   "params": [],
+   "returnType": "number"
+  },
+  {
+   "deprecated": "false",
+   "name": "MemoryUsed",
+   "description": "Returns size of used-memory in Gigabytes",
+   "params": [],
+   "returnType": "number"
+  },
+  {
+   "deprecated": "false",
+   "name": "ModelName",
+   "description": "Get device Model Name.",
+   "params": [],
+   "returnType": "text"
+  },
+  {
+   "deprecated": "false",
+   "name": "Product",
+   "description": "Get device Product Name.",
+   "params": [],
+   "returnType": "text"
+  },
+  {
+   "deprecated": "false",
+   "name": "SDK_Version",
+   "description": "Get device SDK Version.",
+   "params": [],
+   "returnType": "number"
+  },
+  {
+   "deprecated": "false",
+   "name": "ShowAlert",
+   "description": "Show An Alert",
+   "params": [{
+    "name": "message",
+    "type": "text"
+   }]
+  },
+  {
+   "deprecated": "false",
+   "name": "SysLang",
+   "description": "Get System default language",
+   "params": [],
+   "returnType": "text"
+  },
+  {
+   "deprecated": "false",
+   "name": "SysLangIsEn",
+   "description": "Return if system default language is english",
+   "params": [],
+   "returnType": "boolean"
+  },
+  {
+   "deprecated": "false",
+   "name": "SysLangIsZh",
+   "description": "Return if system default language is chinese",
+   "params": [],
+   "returnType": "boolean"
+  },
+  {
+   "deprecated": "false",
+   "name": "Type",
+   "description": "Get device build type.",
+   "params": [],
+   "returnType": "text"
+  },
+  {
+   "deprecated": "false",
+   "name": "containNotch",
+   "description": "Detect if your device contains notch",
+   "params": [],
+   "returnType": "boolean"
+  },
+  {
+   "deprecated": "false",
+   "name": "getSimCountryIso",
+   "description": "Returns the ISO country code equivalent for the SIM provider's country code.",
+   "params": [],
+   "returnType": "text"
+  },
+  {
+   "deprecated": "false",
+   "name": "getSimOperator",
+   "description": "Returns the MCC+MNC (mobile country code + mobile network code) of the provider of the SIM.",
+   "params": [],
+   "returnType": "text"
+  },
+  {
+   "deprecated": "false",
+   "name": "getSimOperatorName",
+   "description": "Returns the Service Provider Name (SPN).",
+   "params": [],
+   "returnType": "text"
+  },
+  {
+   "deprecated": "false",
+   "name": "getSimSerialNumber",
+   "description": "Returns the serial number of the SIM",
+   "params": [],
+   "returnType": "text"
+  },
+  {
+   "deprecated": "false",
+   "name": "is5GHz_Wifi_Supported",
+   "description": "Check if 5Ghz Band Wifi is supported",
+   "params": [],
+   "returnType": "boolean"
+  },
+  {
+   "deprecated": "false",
+   "name": "isDeviceCharging",
+   "description": "Check if your Device is charging.",
+   "params": [],
+   "returnType": "boolean"
+  },
+  {
+   "deprecated": "false",
+   "name": "isDeviceToApRttSupported",
+   "description": "Check if Device To ApRtt Supported",
+   "params": [],
+   "returnType": "boolean"
+  },
+  {
+   "deprecated": "false",
+   "name": "isEmulator",
+   "description": "Detect if your device is an emulator",
+   "params": [],
+   "returnType": "boolean"
+  },
+  {
+   "deprecated": "false",
+   "name": "isEnhancedPowerReportingSupported",
+   "description": "Check if Enhanced Power Reporting Supported",
+   "params": [],
+   "returnType": "boolean"
+  },
+  {
+   "deprecated": "false",
+   "name": "isPreferredNetworkOffloadSupported",
+   "description": "Check if Preferred Network Offload Supported",
+   "params": [],
+   "returnType": "boolean"
+  },
+  {
+   "deprecated": "false",
+   "name": "isWifiEnabled",
+   "description": "Check if Wifi is enabled",
+   "params": [],
+   "returnType": "boolean"
+  },
+  {
+   "deprecated": "false",
+   "name": "isWifiScanAlwaysAvailable",
+   "description": "Check if Wifi Scanning is always available.",
+   "params": [],
+   "returnType": "boolean"
+  },
+  {
+   "deprecated": "false",
+   "name": "isWifiTdlsSupported",
+   "description": "Check if Wifi Tdls Supported.",
+   "params": [],
+   "returnType": "boolean"
+  },
+  {
+   "deprecated": "false",
+   "name": "isWifi_P2P_Supported",
+   "description": "Check if Wifi P2P Supported",
+   "params": [],
+   "returnType": "boolean"
+  }
+ ],
+ "blockProperties": [],
+ "helpUrl": "",
+ "type": "io.makeroid.ngkwankiuu.DeviceInfo.DeviceInfo",
+ "version": "1",
+ "external": "true",
+ "showOnPalette": "true",
+ "name": "DeviceInfo",
+ "helpString": "Component for DeviceInfo",
+ "properties": [],
+ "events": []
+}]

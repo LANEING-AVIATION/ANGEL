@@ -1,0 +1,225 @@
+[{
+ "categoryString": "EXTENSION",
+ "dateBuilt": "2021-10-22T16:11:56+0200",
+ "nonVisible": "true",
+ "iconName": "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABIAAAASCAIAAADZrBkAAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAAEnQAABJ0Ad5mH3gAAABZSURBVDhPY3wro8JAOmCC0iQC+moD+U3o8W0oj4HhnawqlMXAABSHcDEVQG0DcpA1YAKIAriaoRokmAEAF0H3G8S7cFFkNgSgiQyGIAF6BtmHmGD45gAGBgA2ayi1pOkWUAAAAABJRU5ErkJggg==",
+ "methods": [
+  {
+   "deprecated": "false",
+   "name": "AddPage",
+   "description": "Convert the content of a layout to pdf file. with: the page width in PostScript (1/72th of an inch). height: the page height in PostScript (1/72th of an inch). Base directory to pdfName is: /mnt/sdcard/",
+   "params": [
+    {
+     "name": "layout",
+     "type": "component"
+    },
+    {
+     "name": "width",
+     "type": "number"
+    },
+    {
+     "name": "height",
+     "type": "number"
+    }
+   ]
+  },
+  {
+   "deprecated": "false",
+   "name": "AddPage10",
+   "description": "Convert the content of a layout to pdf file. with: the page width in PostScript (1/72th of an inch). height: the page height in PostScript (1/72th of an inch). Base directory to pdfName is: /storage/emulated/0/Android/data/<namepackage>/files/",
+   "params": [
+    {
+     "name": "layout",
+     "type": "component"
+    },
+    {
+     "name": "width",
+     "type": "number"
+    },
+    {
+     "name": "height",
+     "type": "number"
+    }
+   ]
+  },
+  {
+   "deprecated": "false",
+   "name": "CopyFromAsset",
+   "description": "Copy a file from asset to ASD. Return absolute path file.",
+   "params": [{
+    "name": "fileName",
+    "type": "text"
+   }],
+   "returnType": "text"
+  },
+  {
+   "deprecated": "false",
+   "name": "Create",
+   "description": "Set a name pdf file to create.Base directory to pdfName is: /mnt/sdcard/",
+   "params": [{
+    "name": "namePdf",
+    "type": "text"
+   }]
+  },
+  {
+   "deprecated": "false",
+   "name": "Create10",
+   "description": "Set a name pdf file to create.Base directory to pdfName is: /storage/emulated/0/Android/data/<namepackage>/files/",
+   "params": [{
+    "name": "namePdf",
+    "type": "text"
+   }]
+  },
+  {
+   "deprecated": "false",
+   "name": "Density",
+   "description": "Density pixel Screen. Multiply Layout.with * Density Layout.height * Density",
+   "params": [],
+   "returnType": "number"
+  },
+  {
+   "deprecated": "false",
+   "name": "Finish",
+   "description": "After adding the last page you must finalize the document using this block.",
+   "params": []
+  },
+  {
+   "deprecated": "false",
+   "name": "Finish10",
+   "description": "After adding the last page you must finalize the document using this block.",
+   "params": []
+  },
+  {
+   "deprecated": "false",
+   "name": "GetApi",
+   "description": "Get API.",
+   "params": [],
+   "returnType": "number"
+  },
+  {
+   "deprecated": "false",
+   "name": "GetAsdPath",
+   "description": "Get App Specific Directory path (ASD). Example: /storage/emulated/0/Android/data/<namepackage>/files/",
+   "params": [],
+   "returnType": "text"
+  },
+  {
+   "deprecated": "false",
+   "name": "GetSdkCodeName",
+   "description": "Get SDK code name.",
+   "params": [],
+   "returnType": "text"
+  },
+  {
+   "deprecated": "false",
+   "name": "ReadPdf",
+   "description": "Read pdf file, image is an Image component. First page is: 0.Base directory to pdfName is: /mnt/sdcard/",
+   "params": [
+    {
+     "name": "image",
+     "type": "component"
+    },
+    {
+     "name": "pdfName",
+     "type": "text"
+    },
+    {
+     "name": "page",
+     "type": "number"
+    }
+   ]
+  },
+  {
+   "deprecated": "false",
+   "name": "ReadPdf10",
+   "description": "Read pdf file, image is an Image component. First page is: 0.Base directory to pdfName is: /storage/emulated/0/Android/data/<namepackage>/files/",
+   "params": [
+    {
+     "name": "image",
+     "type": "component"
+    },
+    {
+     "name": "pdfName",
+     "type": "text"
+    },
+    {
+     "name": "page",
+     "type": "number"
+    }
+   ]
+  }
+ ],
+ "blockProperties": [
+  {
+   "rw": "read-write",
+   "deprecated": "false",
+   "name": "FinishedPage",
+   "description": "True when page is added.",
+   "type": "boolean"
+  },
+  {
+   "rw": "read-write",
+   "deprecated": "false",
+   "name": "FinishedPage10",
+   "description": "True when page is added.",
+   "type": "boolean"
+  },
+  {
+   "rw": "read-only",
+   "deprecated": "false",
+   "name": "PageCount",
+   "description": "Gets the number of pages in the document. First page is: 0.",
+   "type": "number"
+  },
+  {
+   "rw": "read-only",
+   "deprecated": "false",
+   "name": "PageCount10",
+   "description": "Gets the number of pages in the document. First page is: 0.",
+   "type": "number"
+  }
+ ],
+ "helpUrl": "",
+ "licenseName": "",
+ "type": "com.KIO4_Pdf.KIO4_Pdf",
+ "androidMinSdk": 7,
+ "version": "1",
+ "external": "true",
+ "showOnPalette": "true",
+ "name": "KIO4_Pdf",
+ "helpString": "Convert content of a layout to Pdf file. Read pdf file in an image component. Juan Antonio Villalpando - KIO4.COM",
+ "properties": [
+  {
+   "defaultValue": "false",
+   "name": "FinishedPage",
+   "editorArgs": [],
+   "editorType": "boolean"
+  },
+  {
+   "defaultValue": "false",
+   "name": "FinishedPage10",
+   "editorArgs": [],
+   "editorType": "boolean"
+  }
+ ],
+ "events": [
+  {
+   "deprecated": "false",
+   "name": "AddedPage",
+   "description": "When a page is added finishedPage is true.",
+   "params": [{
+    "name": "finishedPage",
+    "type": "boolean"
+   }]
+  },
+  {
+   "deprecated": "false",
+   "name": "AddedPage10",
+   "description": "When a page is added finishedPage is true.",
+   "params": [{
+    "name": "finishedPage10",
+    "type": "boolean"
+   }]
+  }
+ ]
+}]

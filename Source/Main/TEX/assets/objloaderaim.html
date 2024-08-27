@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html>
+    <head>
+	<style>
+		*{margin:0; padding:0;}
+	</style>
+        <script type="text/javascript" src="three.min.js"></script>
+        <script type="text/javascript" src="OBJLoader.js"></script>
+        
+        <script type="text/javascript">
+var renderer, scene, camera, banana;
+
+var ww = window.innerWidth,
+    wh = window.innerHeight;
+
+function init() {
+
+    renderer = new THREE.WebGLRenderer({
+        canvas: document.getElementById('scene')
+    });
+    renderer.setSize(ww, wh);
+
+    scene = new THREE.Scene();
+
+    camera = new THREE.PerspectiveCamera(50, ww / wh, 0.1, 10000);
+    camera.position.set(0, 500);
+	camera.lookAt(new THREE.Vector3(0, 0, 0));
+    scene.add(camera);
+
+    //Add a light in the scene
+    directionalLight = new THREE.DirectionalLight(0xffffff, 0.8);
+    directionalLight.position.set(0, 0, 350);
+    directionalLight.lookAt(new THREE.Vector3(0, 0, 0));
+    scene.add(directionalLight);
+
+    //Load the obj file
+    //loadObj("ninjaHead_Low.obj");
+}
+
+var loadObj = function(obj) {
+	if(banana != null){
+		scene.remove(banana);
+	}
+	
+    //Manager from ThreeJs to track a loader and its status
+    var manager = new THREE.LoadingManager();
+    //Loader for Obj from Three.js
+    var loader = new THREE.OBJLoader(manager);
+    //Launch loading of the obj file, addBananaInScene is the callback when it's ready 
+    loader.load(obj, addBananaInScene);
+
+};
+
+var addBananaInScene = function(object) {
+    banana = object;
+    //Move the banana in the scene
+    banana.rotation.x = -Math.PI / 2;
+    //banana.position.y = -200;
+    //banana.position.z = 50;
+    //Go through all children of the loaded object and search for a Mesh
+    object.traverse(function(child) {
+        //This allow us to check if the children is an instance of the Mesh constructor
+        if (child instanceof THREE.Mesh) {
+            child.material.color = new THREE.Color(0XffFF00);
+            //Sometimes there are some vertex normals missing in the .obj files, ThreeJs will compute them
+            child.geometry.computeVertexNormals();
+        }
+    });
+    //Add the 3D object in the scene
+    //scene.add(banana);
+    render();
+    renderer.setClearColor('rgba(222,222,222,1)',1.0)
+    /////牛牛加线框代码-开始
+	var geometry=object.children[0].geometry;
+	var material=object.children[0].material;
+	var mesh = new THREE.Mesh(geometry, material);
+	mesh.material.wireframe  = true; //显示线框
+	scene.add(mesh);
+	/////牛牛加线框代码-结束
+};
+
+
+var render = function() {
+    requestAnimationFrame(render);
+
+    //Turn the banana
+
+
+    renderer.render(scene, camera);
+};
+
+
+        </script>
+    </head>
+    
+    <body onload="init()">
+        <canvas id="scene"></canvas>
+
+    </body>
+</html>

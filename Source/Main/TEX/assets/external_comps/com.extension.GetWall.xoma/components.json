@@ -1,0 +1,34 @@
+[{
+ "categoryString": "EXTENSION",
+ "dateBuilt": "2020-09-27T08:52:13+0000",
+ "nonVisible": "true",
+ "iconName": "https://community.appinventor.mit.edu/user_avatar/community.appinventor.mit.edu/kumaraswamy_b.g/32/13770_2.png",
+ "methods": [{
+  "deprecated": "false",
+  "name": "GetWall",
+  "description": "Get WallPapaer",
+  "params": [{
+   "name": "path",
+   "type": "text"
+  }]
+ }],
+ "blockProperties": [],
+ "helpUrl": "Save the wallpaper of the home screen, made my Kumaraswamy",
+ "type": "com.extension.GetWall.xoma.GetWallpaper",
+ "androidMinSdk": 7,
+ "version": "1",
+ "external": "true",
+ "showOnPalette": "true",
+ "name": "GetWallpaper",
+ "helpString": "Save the wallpaper of the home screen, made my Kumaraswamy",
+ "properties": [],
+ "events": [{
+  "deprecated": "false",
+  "name": "SavedWallpaper",
+  "description": "Triggered when wallpaper is saved into internal storage.",
+  "params": [{
+   "name": "path",
+   "type": "text"
+  }]
+ }]
+}]

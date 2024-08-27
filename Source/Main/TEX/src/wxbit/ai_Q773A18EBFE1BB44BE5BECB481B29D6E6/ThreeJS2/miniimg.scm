@@ -1,0 +1,4 @@
+#|
+$JSON
+{"authURL":["wxbit.com"],"YaVersion":"255","Source":"Form","Properties":{"$Name":"miniimg","$Type":"Form","$Version":"35","Title":"miniimg","AppName":"ThreeJS2","AccentColor":"&HFF002B36","PrimaryColor":"&HFF002B36","PrimaryColorDark":"&HFF002B36","ActionBar":"True","Uuid":"0","$Components":[{"$Name":"\u6309\u94ae1","$Type":"Button","$Version":"19","Text":"\u6309\u94ae1","Uuid":"-271820405"},{"$Name":"\u7f51\u9875\u6d4f\u89c8\u68461","$Type":"WebViewer","$Version":"12","Uuid":"-398881777"},{"$Name":"\u6587\u4ef6\u7ba1\u7406\u56681","$Type":"File","$Version":"10","Uuid":"-598071308"},{"$Name":"\u7f13\u5b58","$Type":"TinyDB","$Version":"3","Uuid":"-166127329"}]}}
+|#

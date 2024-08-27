@@ -1,0 +1,4 @@
+#|
+$JSON
+{"authURL":["wxbit.com"],"YaVersion":"255","Source":"Form","Properties":{"$Name":"Screen3","$Type":"Form","$Version":"35","Title":"Screen3","AppName":"ThreeJS2","AccentColor":"&HFF002B36","PrimaryColor":"&HFF002B36","PrimaryColorDark":"&HFF002B36","ActionBar":"True","Uuid":"0","$Components":[{"$Name":"\u6807\u7b7e1","$Type":"Label","$Version":"6","Text":"\u6807\u7b7e1","Uuid":"706096093"},{"$Name":"HTTP\u5ba2\u6237\u7aef1","$Type":"Web","$Version":"13","IgnoreSslErrors":"True","Url":"http:\/\/music.163.com\/api\/song\/enhance\/player\/url?id=1324135055&ids=[1324135055]&br=32000","Uuid":"-1963788671"},{"$Name":"\u97f3\u9891\u64ad\u653e\u56681","$Type":"Player","$Version":"8","Uuid":"1790711401"}]}}
+|#

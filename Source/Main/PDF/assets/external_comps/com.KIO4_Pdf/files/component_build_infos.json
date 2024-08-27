@@ -1,0 +1,1 @@
+[{"contentProviders":[],"metadata":[],"broadcastReceivers":[],"broadcastReceiver":[],"libraries":[],"services":[],"type":"com.KIO4_Pdf.KIO4_Pdf","androidMinSdk":["7"],"activityMetadata":[],"assets":[],"native":[],"permissions":["android.permission.READ_EXTERNAL_STORAGE","android.permission.WRITE_EXTERNAL_STORAGE"],"activities":[]}]

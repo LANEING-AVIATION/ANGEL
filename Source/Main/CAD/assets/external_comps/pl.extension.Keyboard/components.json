@@ -1,0 +1,279 @@
+[{
+ "categoryString": "EXTENSION",
+ "dateBuilt": "2023-04-11T20:26:59+0200",
+ "nonVisible": "true",
+ "iconName": "",
+ "methods": [
+  {
+   "deprecated": "false",
+   "name": "DisableFullScreenKeyboard",
+   "description": "Disables the full screen keyboard.",
+   "params": [{
+    "name": "textBox",
+    "type": "component"
+   }]
+  },
+  {
+   "deprecated": "false",
+   "name": "EnableFullScreenKeyboard",
+   "description": "Enable the full screen keyboard.",
+   "params": [{
+    "name": "textBox",
+    "type": "component"
+   }]
+  },
+  {
+   "deprecated": "false",
+   "name": "KeyboardChangeScreen",
+   "description": "Set the keyboard to one that doesn't change the view of the app's screen.",
+   "params": [{
+    "name": "change",
+    "type": "boolean"
+   }]
+  },
+  {
+   "deprecated": "false",
+   "name": "SetButtonAction",
+   "description": "Set the action button icon on the keyboard and activate ActionButtonClicked event for that button",
+   "params": [
+    {
+     "name": "action",
+     "type": "number"
+    },
+    {
+     "name": "standardAction",
+     "type": "boolean"
+    },
+    {
+     "name": "textBox",
+     "type": "component"
+    }
+   ]
+  },
+  {
+   "deprecated": "false",
+   "name": "SetTypeKeyboard",
+   "description": "Sets the type of keyboard.",
+   "params": [
+    {
+     "name": "type",
+     "type": "number"
+    },
+    {
+     "name": "textBox",
+     "type": "component"
+    }
+   ]
+  },
+  {
+   "deprecated": "false",
+   "name": "ShowKeyboard",
+   "description": "Show keyboard.",
+   "params": [{
+    "name": "textBox",
+    "type": "component"
+   }]
+  }
+ ],
+ "blockProperties": [
+  {
+   "rw": "read-only",
+   "deprecated": "false",
+   "name": "ActionTypeDone",
+   "description": "Return the button action Done",
+   "type": "number"
+  },
+  {
+   "rw": "read-only",
+   "deprecated": "false",
+   "name": "ActionTypeGo",
+   "description": "Returns the button action Go",
+   "type": "number"
+  },
+  {
+   "rw": "read-only",
+   "deprecated": "false",
+   "name": "ActionTypeNext",
+   "description": "Returns the button action Next",
+   "type": "number"
+  },
+  {
+   "rw": "read-only",
+   "deprecated": "false",
+   "name": "ActionTypePrevious",
+   "description": "Returns the button action Previous",
+   "type": "number"
+  },
+  {
+   "rw": "read-only",
+   "deprecated": "false",
+   "name": "ActionTypeSearch",
+   "description": "Returns the button action Search",
+   "type": "number"
+  },
+  {
+   "rw": "read-only",
+   "deprecated": "false",
+   "name": "ActionTypeSend",
+   "description": "Returns the button action Send",
+   "type": "number"
+  },
+  {
+   "rw": "read-only",
+   "deprecated": "false",
+   "name": "TypeNumberDecimal",
+   "description": "Decimal numbers.",
+   "type": "number"
+  },
+  {
+   "rw": "read-only",
+   "deprecated": "false",
+   "name": "TypeNumberDecimalSigned",
+   "description": "Decimal numbers with a minus sign.",
+   "type": "number"
+  },
+  {
+   "rw": "read-only",
+   "deprecated": "false",
+   "name": "TypeNumberInteger",
+   "description": "Integer numbers.",
+   "type": "number"
+  },
+  {
+   "rw": "read-only",
+   "deprecated": "false",
+   "name": "TypeNumberPassword",
+   "description": "Pasword - PIN",
+   "type": "number"
+  },
+  {
+   "rw": "read-only",
+   "deprecated": "false",
+   "name": "TypeNumberPhone",
+   "description": "Property for TypeNumberPhone",
+   "type": "number"
+  },
+  {
+   "rw": "read-only",
+   "deprecated": "false",
+   "name": "TypeTextCapChars",
+   "description": "All letters are uppercase.",
+   "type": "number"
+  },
+  {
+   "rw": "read-only",
+   "deprecated": "false",
+   "name": "TypeTextCapCharsMulti",
+   "description": "All letters are uppercase and multiline.",
+   "type": "number"
+  },
+  {
+   "rw": "read-only",
+   "deprecated": "false",
+   "name": "TypeTextCapSentences",
+   "description": "The first letter of the sentence is capitalized.",
+   "type": "number"
+  },
+  {
+   "rw": "read-only",
+   "deprecated": "false",
+   "name": "TypeTextCapSentencesMulti",
+   "description": "The first letter of the sentence is capitalized and multiline.",
+   "type": "number"
+  },
+  {
+   "rw": "read-only",
+   "deprecated": "false",
+   "name": "TypeTextCapWords",
+   "description": "The first letter of the word is capitalized.",
+   "type": "number"
+  },
+  {
+   "rw": "read-only",
+   "deprecated": "false",
+   "name": "TypeTextCapWordsMilti",
+   "description": "The first letter of the word is capitalized and multiline.",
+   "type": "number"
+  },
+  {
+   "rw": "read-only",
+   "deprecated": "false",
+   "name": "TypeTextNoGraphicsMulti",
+   "description": "Normal text without graphics and multiline.",
+   "type": "number"
+  },
+  {
+   "rw": "read-only",
+   "deprecated": "false",
+   "name": "TypeTextNormal",
+   "description": "Normal text.",
+   "type": "number"
+  },
+  {
+   "rw": "read-only",
+   "deprecated": "false",
+   "name": "TypeTextNormalMulti",
+   "description": "Normal multiline text.",
+   "type": "number"
+  },
+  {
+   "rw": "read-only",
+   "deprecated": "false",
+   "name": "TypeTextPassword",
+   "description": "Text password.",
+   "type": "number"
+  },
+  {
+   "rw": "read-only",
+   "deprecated": "false",
+   "name": "TypeTextVisiblePassword",
+   "description": "Text visible password.",
+   "type": "number"
+  }
+ ],
+ "helpUrl": "https://community.appinventor.mit.edu/t/fullkeyboardoff-an-extension-that-will-disable-the-full-screen-keyboard/36462?u=patryk_f",
+ "licenseName": "",
+ "type": "pl.extension.Keyboard.Keyboard",
+ "androidMinSdk": 7,
+ "version": "6",
+ "external": "true",
+ "showOnPalette": "true",
+ "name": "Keyboard",
+ "helpString": "Additional methods for the keyboard by Patryk_F.",
+ "properties": [],
+ "events": [
+  {
+   "deprecated": "false",
+   "name": "ActionButtonClicked",
+   "description": "An event that occurs when click action button.",
+   "params": [
+    {
+     "name": "action",
+     "type": "number"
+    },
+    {
+     "name": "component",
+     "type": "component"
+    }
+   ]
+  },
+  {
+   "deprecated": "false",
+   "name": "GotFocus",
+   "description": "An event that occurs when an TextBox got focus.",
+   "params": [{
+    "name": "textBox",
+    "type": "component"
+   }]
+  },
+  {
+   "deprecated": "false",
+   "name": "LostFocus",
+   "description": "An event that occurs when an TextBox lost focus.",
+   "params": [{
+    "name": "textBox",
+    "type": "component"
+   }]
+  }
+ ]
+}]

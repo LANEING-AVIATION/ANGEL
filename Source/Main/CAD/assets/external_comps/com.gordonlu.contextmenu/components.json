@@ -1,0 +1,70 @@
+[{
+ "categoryString": "EXTENSION",
+ "dateBuilt": "2022-04-01T12:11:57+0000",
+ "nonVisible": "true",
+ "iconName": "https://docs.google.com/drawings/d/e/2PACX-1vQCI87PHLBF0jb8QWyYmIRQSjjNW3EFXf-qpsWCvBYkUQ9vEgPAB8SpxcMpblxNpbIYrjCjLrRLIU2c/pub?w=16&h=16",
+ "methods": [
+  {
+   "deprecated": "false",
+   "name": "SetSelectable",
+   "description": "Sets the component's text selectable by the user.",
+   "params": [{
+    "name": "component",
+    "type": "component"
+   }]
+  },
+  {
+   "deprecated": "false",
+   "name": "ShowAdvancedContextMenu",
+   "description": "Shows the advanced context menu for this component and fires the OnFinish event for whether it is successful. What's different from ShowContextMenu is that you can specify the x and y position of the context menu. This function will require devices with Android versions larger or 7.0.",
+   "params": [
+    {
+     "name": "component",
+     "type": "component"
+    },
+    {
+     "name": "x",
+     "type": "number"
+    },
+    {
+     "name": "y",
+     "type": "number"
+    }
+   ]
+  },
+  {
+   "deprecated": "false",
+   "name": "ShowContextMenu",
+   "description": "Shows the context menu for this component and fires the OnFinish event for whether it is successful.",
+   "params": [{
+    "name": "component",
+    "type": "component"
+   }]
+  }
+ ],
+ "blockProperties": [],
+ "helpUrl": "",
+ "type": "com.gordonlu.contextmenu.ContextMenu",
+ "androidMinSdk": 7,
+ "version": "1",
+ "external": "true",
+ "showOnPalette": "true",
+ "name": "ContextMenu",
+ "helpString": "A non-visible extension to show the context menu of your components.<br><br>Made by Gordon Lu (AICODE).",
+ "properties": [],
+ "events": [{
+  "deprecated": "false",
+  "name": "OnFinish",
+  "description": "This event is fired when the action is completed. The isAdvanced parameter identifies whether the action is showing an advanced context menu, and the successful parameter is whether the action is successfully completed.",
+  "params": [
+   {
+    "name": "isAdvanced",
+    "type": "boolean"
+   },
+   {
+    "name": "successful",
+    "type": "boolean"
+   }
+  ]
+ }]
+}]

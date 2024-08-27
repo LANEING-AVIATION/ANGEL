@@ -1,0 +1,323 @@
+[{
+ "categoryString": "EXTENSION",
+ "dateBuilt": "2021-03-17T11:27:44+0530",
+ "nonVisible": "true",
+ "iconName": "/img/img.png",
+ "methods": [
+  {
+   "deprecated": "false",
+   "name": "SetBorder",
+   "description": "Method for SetBorder",
+   "params": [
+    {
+     "name": "component",
+     "type": "component"
+    },
+    {
+     "name": "borderWidth",
+     "type": "number"
+    },
+    {
+     "name": "borderColor",
+     "type": "number"
+    }
+   ]
+  },
+  {
+   "deprecated": "false",
+   "name": "SetElevation",
+   "description": "Method for SetElevation",
+   "params": [
+    {
+     "name": "component",
+     "type": "component"
+    },
+    {
+     "name": "elevation",
+     "type": "number"
+    }
+   ]
+  },
+  {
+   "deprecated": "false",
+   "name": "SetGradient",
+   "description": "Method for SetGradient",
+   "params": [
+    {
+     "name": "component",
+     "type": "component"
+    },
+    {
+     "name": "colors",
+     "type": "list"
+    },
+    {
+     "name": "orientation",
+     "type": "number"
+    }
+   ]
+  },
+  {
+   "deprecated": "false",
+   "name": "SetImage",
+   "description": "Method for SetImage",
+   "params": [
+    {
+     "name": "component",
+     "type": "component"
+    },
+    {
+     "name": "imagePath",
+     "type": "text"
+    },
+    {
+     "name": "imageRadius",
+     "type": "text"
+    }
+   ]
+  },
+  {
+   "deprecated": "false",
+   "name": "SetMargin",
+   "description": "Method for SetMargin",
+   "params": [
+    {
+     "name": "component",
+     "type": "component"
+    },
+    {
+     "name": "margin",
+     "type": "text"
+    }
+   ]
+  },
+  {
+   "deprecated": "false",
+   "name": "SetOpacity",
+   "description": "Method for SetOpacity",
+   "params": [
+    {
+     "name": "component",
+     "type": "component"
+    },
+    {
+     "name": "opacity",
+     "type": "text"
+    }
+   ]
+  },
+  {
+   "deprecated": "false",
+   "name": "SetPadding",
+   "description": "Method for SetPadding",
+   "params": [
+    {
+     "name": "component",
+     "type": "component"
+    },
+    {
+     "name": "padding",
+     "type": "text"
+    }
+   ]
+  },
+  {
+   "deprecated": "false",
+   "name": "SetRadius",
+   "description": "Method for SetRadius",
+   "params": [
+    {
+     "name": "component",
+     "type": "component"
+    },
+    {
+     "name": "radius",
+     "type": "text"
+    }
+   ]
+  },
+  {
+   "deprecated": "false",
+   "name": "SetRipple",
+   "description": "Method for SetRipple",
+   "params": [
+    {
+     "name": "component",
+     "type": "component"
+    },
+    {
+     "name": "color",
+     "type": "number"
+    }
+   ]
+  },
+  {
+   "deprecated": "false",
+   "name": "SetRotation",
+   "description": "Method for SetRotation",
+   "params": [
+    {
+     "name": "component",
+     "type": "component"
+    },
+    {
+     "name": "angle",
+     "type": "number"
+    }
+   ]
+  },
+  {
+   "deprecated": "false",
+   "name": "SetShape",
+   "description": "Method for SetShape",
+   "params": [
+    {
+     "name": "component",
+     "type": "component"
+    },
+    {
+     "name": "shape",
+     "type": "number"
+    }
+   ]
+  },
+  {
+   "deprecated": "false",
+   "name": "SetSpace",
+   "description": "Method for SetSpace",
+   "params": [
+    {
+     "name": "component",
+     "type": "component"
+    },
+    {
+     "name": "lineSpace",
+     "type": "number"
+    },
+    {
+     "name": "letterSpace",
+     "type": "number"
+    }
+   ]
+  },
+  {
+   "deprecated": "false",
+   "name": "SetStroke",
+   "description": "Method for SetStroke",
+   "params": [
+    {
+     "name": "component",
+     "type": "component"
+    },
+    {
+     "name": "dashed",
+     "type": "boolean"
+    },
+    {
+     "name": "width",
+     "type": "number"
+    },
+    {
+     "name": "color",
+     "type": "number"
+    },
+    {
+     "name": "dashgap",
+     "type": "number"
+    },
+    {
+     "name": "length",
+     "type": "number"
+    }
+   ]
+  },
+  {
+   "deprecated": "false",
+   "name": "SetVisibility",
+   "description": "Method for SetVisibility",
+   "params": [
+    {
+     "name": "component",
+     "type": "component"
+    },
+    {
+     "name": "visibility",
+     "type": "number"
+    }
+   ]
+  }
+ ],
+ "blockProperties": [
+  {
+   "rw": "read-write",
+   "deprecated": "false",
+   "name": "BackgoundColor",
+   "description": "Property for BackgoundColor",
+   "type": "number"
+  },
+  {
+   "rw": "read-only",
+   "deprecated": "false",
+   "name": "ShapeLine",
+   "description": "Property for ShapeLine",
+   "type": "number"
+  },
+  {
+   "rw": "read-only",
+   "deprecated": "false",
+   "name": "ShapeOval",
+   "description": "Property for ShapeOval",
+   "type": "number"
+  },
+  {
+   "rw": "read-only",
+   "deprecated": "false",
+   "name": "ShapeRectangle",
+   "description": "Property for ShapeRectangle",
+   "type": "number"
+  },
+  {
+   "rw": "read-only",
+   "deprecated": "false",
+   "name": "ShapeRing",
+   "description": "Property for ShapeRing",
+   "type": "number"
+  },
+  {
+   "rw": "read-only",
+   "deprecated": "false",
+   "name": "VisibilityGone",
+   "description": "Property for VisibilityGone",
+   "type": "number"
+  },
+  {
+   "rw": "read-only",
+   "deprecated": "false",
+   "name": "VisibilityInvisible",
+   "description": "Property for VisibilityInvisible",
+   "type": "number"
+  },
+  {
+   "rw": "read-only",
+   "deprecated": "false",
+   "name": "VisibilityVisible",
+   "description": "Property for VisibilityVisible",
+   "type": "number"
+  }
+ ],
+ "helpUrl": "",
+ "type": "com.vsatish.makeviewup.MakeViewUp",
+ "androidMinSdk": 7,
+ "version": "2",
+ "external": "true",
+ "showOnPalette": "true",
+ "name": "MakeViewUp",
+ "helpString": "An extension with addons to visible component.<br>Extension by <a href='https://t.me/vsatish'>VSatish<\/a><br>Subscribe VSatish on <a href='https://www.youtube.com/vsatish13'>Youtube<\/a><br>Follow VSatish on <a href='https://www.instagram.com/vsatish13'>Instagram<\/a>",
+ "properties": [{
+  "defaultValue": "&HFF000000",
+  "name": "BackgoundColor",
+  "editorArgs": [],
+  "editorType": "color"
+ }],
+ "events": []
+}]

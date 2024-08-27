@@ -1,0 +1,656 @@
+[{
+ "categoryString": "EXTENSION",
+ "dateBuilt": "2020-08-20T11:26:08+0100",
+ "nonVisible": "true",
+ "iconName": "https://firebasestorage.googleapis.com/v0/b/myhtmlpage-fafe8.appspot.com/o/image_16x16.png?alt=media&token=8ef0f45e-f83b-426b-a128-bdb4ed9682cc",
+ "methods": [
+  {
+   "deprecated": "false",
+   "name": "CancelMovement",
+   "description": "Cancels The movement by its id.",
+   "params": [{
+    "name": "id",
+    "type": "text"
+   }]
+  },
+  {
+   "deprecated": "false",
+   "name": "GetBottomPostion",
+   "description": "Gets the component bottom postion.",
+   "params": [{
+    "name": "component",
+    "type": "component"
+   }],
+   "returnType": "number"
+  },
+  {
+   "deprecated": "false",
+   "name": "GetComponentX",
+   "description": "Gets component X position.",
+   "params": [{
+    "name": "component",
+    "type": "component"
+   }],
+   "returnType": "number"
+  },
+  {
+   "deprecated": "false",
+   "name": "GetComponentY",
+   "description": "Gets component Y position.",
+   "params": [{
+    "name": "component",
+    "type": "component"
+   }],
+   "returnType": "number"
+  },
+  {
+   "deprecated": "false",
+   "name": "GetLeftPostion",
+   "description": "Gets the component left postion.",
+   "params": [{
+    "name": "component",
+    "type": "component"
+   }],
+   "returnType": "number"
+  },
+  {
+   "deprecated": "false",
+   "name": "GetPaddingBottom",
+   "description": "Gets the bottom padding of any component you want.",
+   "params": [{
+    "name": "component",
+    "type": "component"
+   }],
+   "returnType": "number"
+  },
+  {
+   "deprecated": "false",
+   "name": "GetPaddingLeft",
+   "description": "Gets the left padding of any component you want.",
+   "params": [{
+    "name": "component",
+    "type": "component"
+   }],
+   "returnType": "number"
+  },
+  {
+   "deprecated": "false",
+   "name": "GetPaddingRight",
+   "description": "Gets the right padding of any component you want.",
+   "params": [{
+    "name": "component",
+    "type": "component"
+   }],
+   "returnType": "number"
+  },
+  {
+   "deprecated": "false",
+   "name": "GetPaddingTop",
+   "description": "Gets the top padding of any component you want.",
+   "params": [{
+    "name": "component",
+    "type": "component"
+   }],
+   "returnType": "number"
+  },
+  {
+   "deprecated": "false",
+   "name": "GetRightPostion",
+   "description": "Gets the component right postion.",
+   "params": [{
+    "name": "component",
+    "type": "component"
+   }],
+   "returnType": "number"
+  },
+  {
+   "deprecated": "false",
+   "name": "GetRotation",
+   "description": "Gets the rotation of the component.",
+   "params": [{
+    "name": "component",
+    "type": "component"
+   }],
+   "returnType": "number"
+  },
+  {
+   "deprecated": "false",
+   "name": "GetRotationX",
+   "description": "Gets the rotation X of the component.",
+   "params": [{
+    "name": "component",
+    "type": "component"
+   }],
+   "returnType": "number"
+  },
+  {
+   "deprecated": "false",
+   "name": "GetRotationY",
+   "description": "Gets the rotation Y of the component.",
+   "params": [{
+    "name": "component",
+    "type": "component"
+   }],
+   "returnType": "number"
+  },
+  {
+   "deprecated": "false",
+   "name": "GetScaleX",
+   "description": "Gets the scale X of the component.",
+   "params": [{
+    "name": "component",
+    "type": "component"
+   }],
+   "returnType": "number"
+  },
+  {
+   "deprecated": "false",
+   "name": "GetScaleY",
+   "description": "Gets the scale Y of the component.",
+   "params": [{
+    "name": "component",
+    "type": "component"
+   }],
+   "returnType": "number"
+  },
+  {
+   "deprecated": "false",
+   "name": "GetShadowElevation",
+   "description": "Gets the Shadow Elevation of any component you want.",
+   "params": [{
+    "name": "component",
+    "type": "component"
+   }],
+   "returnType": "number"
+  },
+  {
+   "deprecated": "false",
+   "name": "GetTopPostion",
+   "description": "Gets the component top postion.",
+   "params": [{
+    "name": "component",
+    "type": "component"
+   }],
+   "returnType": "number"
+  },
+  {
+   "deprecated": "false",
+   "name": "GetZ",
+   "description": "Sets the Z postion of any component you want.",
+   "params": [{
+    "name": "component",
+    "type": "component"
+   }],
+   "returnType": "number"
+  },
+  {
+   "deprecated": "false",
+   "name": "IsMovementPaused",
+   "description": "Returns true if The current movement by its id is paused.",
+   "params": [{
+    "name": "id",
+    "type": "text"
+   }],
+   "returnType": "boolean"
+  },
+  {
+   "deprecated": "false",
+   "name": "IsMovementRunning",
+   "description": "Returns true if The current movement by its id is running.",
+   "params": [{
+    "name": "id",
+    "type": "text"
+   }],
+   "returnType": "boolean"
+  },
+  {
+   "deprecated": "false",
+   "name": "MoveHorizontally",
+   "description": "Moves any component you want vertically.",
+   "params": [
+    {
+     "name": "px",
+     "type": "number"
+    },
+    {
+     "name": "component",
+     "type": "component"
+    },
+    {
+     "name": "duration",
+     "type": "number"
+    },
+    {
+     "name": "id",
+     "type": "text"
+    }
+   ]
+  },
+  {
+   "deprecated": "false",
+   "name": "MoveInCustomPath",
+   "description": "Moves any component you want in custom path.",
+   "params": [
+    {
+     "name": "component",
+     "type": "component"
+    },
+    {
+     "name": "duration",
+     "type": "number"
+    },
+    {
+     "name": "left",
+     "type": "number"
+    },
+    {
+     "name": "top",
+     "type": "number"
+    },
+    {
+     "name": "right",
+     "type": "number"
+    },
+    {
+     "name": "bottom",
+     "type": "number"
+    },
+    {
+     "name": "startAngle",
+     "type": "number"
+    },
+    {
+     "name": "sweepAngle",
+     "type": "number"
+    },
+    {
+     "name": "forceMoveTo",
+     "type": "boolean"
+    },
+    {
+     "name": "id",
+     "type": "text"
+    }
+   ]
+  },
+  {
+   "deprecated": "false",
+   "name": "MoveVertically",
+   "description": "Moves any component you want vertically.",
+   "params": [
+    {
+     "name": "px",
+     "type": "number"
+    },
+    {
+     "name": "component",
+     "type": "component"
+    },
+    {
+     "name": "duration",
+     "type": "number"
+    },
+    {
+     "name": "id",
+     "type": "text"
+    }
+   ]
+  },
+  {
+   "deprecated": "false",
+   "name": "PauseMovement",
+   "description": "Pauses The current movement.",
+   "params": [{
+    "name": "id",
+    "type": "text"
+   }]
+  },
+  {
+   "deprecated": "false",
+   "name": "PerformClick",
+   "description": "Performs a click on any component you want.",
+   "params": [{
+    "name": "component",
+    "type": "component"
+   }]
+  },
+  {
+   "deprecated": "false",
+   "name": "PerformLongClick",
+   "description": "Performs a long click on any component you want.",
+   "params": [{
+    "name": "component",
+    "type": "component"
+   }]
+  },
+  {
+   "deprecated": "false",
+   "name": "RegisterComponent",
+   "description": "Register component so the extension can detect touches on it.",
+   "params": [{
+    "name": "component",
+    "type": "component"
+   }]
+  },
+  {
+   "deprecated": "false",
+   "name": "ResumeMovement",
+   "description": "Resumes The current movement by its id.",
+   "params": [{
+    "name": "id",
+    "type": "text"
+   }]
+  },
+  {
+   "deprecated": "false",
+   "name": "SetBottomPostion",
+   "description": "Sets the bottom postion of any component you want.",
+   "params": [
+    {
+     "name": "component",
+     "type": "component"
+    },
+    {
+     "name": "bottom",
+     "type": "number"
+    }
+   ]
+  },
+  {
+   "deprecated": "false",
+   "name": "SetLeftPostion",
+   "description": "Sets the left postion of any component you want.",
+   "params": [
+    {
+     "name": "component",
+     "type": "component"
+    },
+    {
+     "name": "left",
+     "type": "number"
+    }
+   ]
+  },
+  {
+   "deprecated": "false",
+   "name": "SetPadding",
+   "description": "Sets the padding of any component you want.",
+   "params": [
+    {
+     "name": "component",
+     "type": "component"
+    },
+    {
+     "name": "left",
+     "type": "number"
+    },
+    {
+     "name": "top",
+     "type": "number"
+    },
+    {
+     "name": "right",
+     "type": "number"
+    },
+    {
+     "name": "bottom",
+     "type": "number"
+    }
+   ]
+  },
+  {
+   "deprecated": "false",
+   "name": "SetRightPostion",
+   "description": "Sets the right postion of any component you want.",
+   "params": [
+    {
+     "name": "component",
+     "type": "component"
+    },
+    {
+     "name": "right",
+     "type": "number"
+    }
+   ]
+  },
+  {
+   "deprecated": "false",
+   "name": "SetRotation",
+   "description": "Changes the rotation of any component you want.",
+   "params": [
+    {
+     "name": "component",
+     "type": "component"
+    },
+    {
+     "name": "rotation",
+     "type": "number"
+    }
+   ]
+  },
+  {
+   "deprecated": "false",
+   "name": "SetRotationX",
+   "description": "Changes the rotation X of any component you want.",
+   "params": [
+    {
+     "name": "component",
+     "type": "component"
+    },
+    {
+     "name": "rotationX",
+     "type": "number"
+    }
+   ]
+  },
+  {
+   "deprecated": "false",
+   "name": "SetRotationY",
+   "description": "Changes the rotation Y of any component you want.",
+   "params": [
+    {
+     "name": "component",
+     "type": "component"
+    },
+    {
+     "name": "rotationY",
+     "type": "number"
+    }
+   ]
+  },
+  {
+   "deprecated": "false",
+   "name": "SetScaleX",
+   "description": "Changes the scale X of any component you want.",
+   "params": [
+    {
+     "name": "component",
+     "type": "component"
+    },
+    {
+     "name": "scaleX",
+     "type": "number"
+    }
+   ]
+  },
+  {
+   "deprecated": "false",
+   "name": "SetScaleY",
+   "description": "Changes the scale Y of any component you want.",
+   "params": [
+    {
+     "name": "component",
+     "type": "component"
+    },
+    {
+     "name": "scaleY",
+     "type": "number"
+    }
+   ]
+  },
+  {
+   "deprecated": "false",
+   "name": "SetShadowElevation",
+   "description": "Set the Shadow Elevation of any component you want.",
+   "params": [
+    {
+     "name": "component",
+     "type": "component"
+    },
+    {
+     "name": "shadowElevation",
+     "type": "number"
+    }
+   ]
+  },
+  {
+   "deprecated": "false",
+   "name": "SetTopPostion",
+   "description": "Sets the top postion of any component you want.",
+   "params": [
+    {
+     "name": "component",
+     "type": "component"
+    },
+    {
+     "name": "top",
+     "type": "number"
+    }
+   ]
+  },
+  {
+   "deprecated": "false",
+   "name": "SetX",
+   "description": "Sets the X postion of any component you want.",
+   "params": [
+    {
+     "name": "component",
+     "type": "component"
+    },
+    {
+     "name": "x",
+     "type": "number"
+    }
+   ]
+  },
+  {
+   "deprecated": "false",
+   "name": "SetY",
+   "description": "Sets the Y postion of any component you want.",
+   "params": [
+    {
+     "name": "component",
+     "type": "component"
+    },
+    {
+     "name": "y",
+     "type": "number"
+    }
+   ]
+  },
+  {
+   "deprecated": "false",
+   "name": "SetZ",
+   "description": "Sets the Z postion of any component you want.",
+   "params": [
+    {
+     "name": "component",
+     "type": "component"
+    },
+    {
+     "name": "z",
+     "type": "number"
+    }
+   ]
+  }
+ ],
+ "blockProperties": [{
+  "rw": "read-only",
+  "deprecated": "false",
+  "name": "LastUsedID",
+  "description": "Gets the last used id.",
+  "type": "text"
+ }],
+ "helpUrl": "",
+ "type": "io.mohamed.ComponentTools.ComponentTools",
+ "androidMinSdk": 7,
+ "version": "3",
+ "external": "true",
+ "showOnPalette": "true",
+ "name": "ComponentTools",
+ "helpString": "This extension offers some tools that you can use with components.<br>Devoloped by: Mohammed Tamer",
+ "properties": [],
+ "events": [
+  {
+   "deprecated": "false",
+   "name": "Error",
+   "description": "This event is triggerred when an error occurrs.",
+   "params": [{
+    "name": "error",
+    "type": "text"
+   }]
+  },
+  {
+   "deprecated": "false",
+   "name": "MoveCanceled",
+   "description": "This event is triggerred when the current movement canceles.",
+   "params": [{
+    "name": "id",
+    "type": "text"
+   }]
+  },
+  {
+   "deprecated": "false",
+   "name": "MoveCompleted",
+   "description": "This event is triggerred when the current movement ends.",
+   "params": [{
+    "name": "id",
+    "type": "text"
+   }]
+  },
+  {
+   "deprecated": "false",
+   "name": "MoveStarted",
+   "description": "This event is triggerred when the current movement starts.",
+   "params": [{
+    "name": "id",
+    "type": "text"
+   }]
+  },
+  {
+   "deprecated": "false",
+   "name": "Touched",
+   "description": "This event is triggerred when a component is touched.The action is returned in the action parameter.",
+   "params": [
+    {
+     "name": "component",
+     "type": "any"
+    },
+    {
+     "name": "info",
+     "type": "text"
+    },
+    {
+     "name": "x",
+     "type": "list"
+    },
+    {
+     "name": "y",
+     "type": "list"
+    },
+    {
+     "name": "action",
+     "type": "text"
+    },
+    {
+     "name": "positionCount",
+     "type": "number"
+    },
+    {
+     "name": "eventTime",
+     "type": "number"
+    }
+   ]
+  }
+ ]
+}]

@@ -1,0 +1,348 @@
+<!DOCTYPE html>
+<html>
+    <head>
+	<style>
+		*{margin:0; padding:0;}
+	</style>
+        <script type="text/javascript" src="three.js"></script>
+        <script type="text/javascript" src="OBJLoader.js"></script>
+        
+        <script type="text/javascript">
+var renderer, scene, camera, banana;
+
+var ww = window.innerWidth,
+    wh = window.innerHeight;
+ function clearScene() {
+    this.renderer.dispose();
+    this.scene.clear();
+    this.flows = [];
+    this.scene = null;
+    this.camera = null;
+    this.controls = null;
+    this.renderer.domElement = null;
+    this.renderer = null;
+    this.sceneDomElement = null;
+  }
+
+
+function init() {
+
+    renderer = new THREE.WebGLRenderer({
+        canvas: document.getElementById('scene')
+    });
+    renderer.setSize(ww, wh);
+
+    scene = new THREE.Scene();
+
+    camera = new THREE.PerspectiveCamera(50, ww / wh, 0.1, 10000);
+    camera.zoom = 0.1;
+    camera.position.set(0, 0, 150);
+	camera.lookAt(new THREE.Vector3(0, 0, 0));
+    scene.add(camera);
+    //Add a light in the scene
+    directionalLight = new THREE.DirectionalLight(0xffffff, 0.8);
+    directionalLight.position.set(0, 0, 0);
+    directionalLight.lookAt(new THREE.Vector3(-1, 0, 0));
+    scene.add(directionalLight);
+    var helper = new THREE.GridHelper(1200, 60, 0xFF4444, 'rgba(200,200,200,1)' );
+    scene.add(helper);
+
+        // 构造线段
+    var lineGeometry = new THREE.Geometry();
+    lineGeometry.vertices.push(new THREE.Vector3(-200, -200, -200));
+    lineGeometry.vertices.push(new THREE.Vector3(200, 200, 200));
+
+    var lineMaterial = new THREE.LineDashedMaterial({
+            color : 0x9B30FF
+        });
+    var line = new THREE.Line(lineGeometry, lineMaterial);
+    // 计算线条间的距离
+    line.computeLineDistances();
+    scene.add(line);
+}
+
+function createMesh(geom) {
+
+        //设置当前的模型矩阵沿y轴负方向偏移20
+        geom.applyMatrix(new THREE.Matrix4().makeTranslation(0, -100, 0));
+
+        // 创建法向量纹理
+        var meshMaterial = new THREE.MeshNormalMaterial({
+            flatShading: THREE.FlatShading,
+            transparent: true,
+            opacity: 0.7
+        });
+
+        //  创建一个线框纹理
+        var wireFrameMat = new THREE.MeshBasicMaterial();
+        wireFrameMat.wireframe = true;
+
+        // 创建模型
+        var mesh = THREE.SceneUtils.createMultiMaterialObject(geom, [meshMaterial,wireFrameMat]);
+
+        return mesh;
+    }
+    
+function initinper() {
+
+    renderer = new THREE.WebGLRenderer({
+        canvas: document.getElementById('scene')
+    });
+    renderer.setSize(ww, wh);
+
+    scene = new THREE.Scene();
+
+    camera = new THREE.OrthographicCamera(window.innerWidth/-2,window.innerWidth/2,window.innerHeight/2,window.innerHeight/-2,-10000,400000);
+    cameraBIG = new THREE.OrthographicCamera(window.innerWidth/-1,window.innerWidth/1,window.innerHeight/1,window.innerHeight/-1,-10000,400000);
+    cameraSMA = new THREE.OrthographicCamera(window.innerWidth/-4,window.innerWidth/4,window.innerHeight/4,window.innerHeight/-4,-10000,400000);
+    cameraPER = new THREE.PerspectiveCamera(50, ww / wh, 0.1, 10000);
+    camera.zoom = 0.1;
+    camera.position.set(0, 0, 150);
+	camera.lookAt(new THREE.Vector3(0, 0, 0));
+    scene.add(camera);
+    //Add a light in the scene
+    directionalLight = new THREE.DirectionalLight(0xffffff, 0.8);
+    directionalLight.position.set(0, 0, 0);
+    directionalLight.lookAt(new THREE.Vector3(-1, 0, 0));
+    scene.add(directionalLight);
+    
+    //scene.add(directionalLight);
+
+    //Load the obj file
+    //loadObj("ninjaHead_Low.obj");
+        var helper = new THREE.GridHelper(1200, 60, 0xFF4444, 'rgba(200,200,200,1)' );
+    scene.add(helper);
+
+        // 构造线段
+    var lineGeometry = new THREE.Geometry();
+    lineGeometry.vertices.push(new THREE.Vector3(-200, -200, -200));
+    lineGeometry.vertices.push(new THREE.Vector3(200, 200, 200));
+
+    var lineMaterial = new THREE.LineDashedMaterial({
+            color : 0x9B30FF
+        });
+    var line = new THREE.Line(lineGeometry, lineMaterial);
+    // 计算线条间的距离
+    line.computeLineDistances();
+    scene.add(line);
+}
+var loadObj = function(obj) {
+	if(banana != null){
+		scene.remove(banana);
+	}
+	
+    //Manager from ThreeJs to track a loader and its status
+    var manager = new THREE.LoadingManager();
+    //Loader for Obj from Three.js
+    var loader = new THREE.OBJLoader(manager);
+    //Launch loading of the obj file, addBananaInScene is the callback when it's ready
+    loader.load(obj, addBananaInScene);
+
+};
+
+
+var addBananaInScene = function(object) {
+    banana = object;
+    //Move the banana in the scene
+    banana.rotation.x = -Math.PI / 2;
+    //banana.position.y = -200;
+    //banana.position.z = 50;
+    //Go through all children of the loaded object and search for a Mesh
+    object.traverse(function(child) {
+        //This allow us to check if the children is an instance of the Mesh constructor
+        if (child instanceof THREE.Mesh) {
+            //Sometimes there are some vertex normals missing in the .obj files, ThreeJs will compute them
+            child.geometry.computeVertexNormals();
+        }
+    });
+    //Add the 3D object in the scene
+    //scene.add(banana);
+    render();
+    renderer.setClearColor('rgba(255,255,255,1)',1.0)
+    //加载贴图图片;
+    var texture = new THREE.TextureLoader().load(image, function () {
+                renderer.render(scene, camera);
+            }
+    );
+	var geometry=object.children[0].geometry;
+    var material = new THREE.MeshBasicMaterial({
+        map: texture,
+        side: THREE.DoubleSide,
+    });
+    var mesh = new THREE.Mesh(geometry, material);
+    scene.add(mesh);
+    var materia = new THREE.MeshBasicMaterial({
+        color:'rgba(0,0,0,0.2)',
+    });
+    var frame = new THREE.Mesh(geometry, materia);
+    frame.material.wireframe  = true; //显示线框
+};
+
+var loadColorbox = function(obj) {
+	if(banana != null){
+		scene.remove(banana);
+	}
+	
+    //Manager from ThreeJs to track a loader and its status
+    var manager = new THREE.LoadingManager();
+    //Loader for Obj from Three.js
+    var loader = new THREE.OBJLoader(manager);
+    //Launch loading of the obj file, addBananaInScene is the callback when it's ready
+    loader.load(obj, addColorboxInScene);
+
+};
+
+
+var addColorboxInScene = function(object) {
+    banana = object;
+    //Move the banana in the scene
+    banana.rotation.x = -Math.PI / 2;
+    //banana.position.y = -200;
+    //banana.position.z = 50;
+    //Go through all children of the loaded object and search for a Mesh
+    object.traverse(function(child) {
+        //This allow us to check if the children is an instance of the Mesh constructor
+        if (child instanceof THREE.Mesh) {
+            //Sometimes there are some vertex normals missing in the .obj files, ThreeJs will compute them
+            child.geometry.computeVertexNormals();
+        }
+    });
+    //Add the 3D object in the scene
+    //scene.add(banana);
+    render();
+    renderer.setClearColor('rgba(255,255,255,1)',1.0)
+    //加载贴图图片;
+    var texture = new THREE.TextureLoader().load(image, function () {
+                renderer.render(scene, camera);
+            }
+    );
+	var geometry=object.children[0].geometry;
+    var material = new THREE.MeshBasicMaterial({
+        map: texture,
+        side: sideoption,
+    });
+    var mesh = new THREE.Mesh(geometry, material);
+    scene.add(mesh);
+    var materia = new THREE.MeshBasicMaterial({
+        color:'rgba(0,0,0,0.2)',
+    });
+    //var frame = new THREE.Mesh(geometry, materia);
+    //frame.material.wireframe  = false; //显示线框
+	scene.add(frame);
+};
+
+var classload = function(obj) {
+	if(banana != null){
+		scene.remove(banana);
+	}
+	
+    //Manager from ThreeJs to track a loader and its status
+    var manager = new THREE.LoadingManager();
+    //Loader for Obj from Three.js
+    var loader = new THREE.OBJLoader(manager);
+    //Launch loading of the obj file, addBananaInScene is the callback when it's ready
+    loader.load(obj, classadd);
+
+};
+
+
+var classadd = function(object) {
+    banana = object;
+    object.traverse(function(child) {
+        //This allow us to check if the children is an instance of the Mesh constructor
+        if (child instanceof THREE.Mesh) {
+            //Sometimes there are some vertex normals missing in the .obj files, ThreeJs will compute them
+            child.geometry.computeVertexNormals();
+        }
+    });
+    //Add the 3D object in the scene
+    //scene.add(banana);
+    render();
+    renderer.setClearColor('rgba(255,255,255,1)',1.0)
+    /////牛牛加线框代码-开始
+	var geometry=object.children[0].geometry;
+	var material=object.children[0].material;
+	var mesh = new THREE.Mesh(geometry, material);
+	mesh.material.wireframe  = false; //显示线框
+	scene.add(mesh);
+	/////牛牛加线框代码-结束
+};
+
+
+
+    
+var image = "";
+var x = 0;
+var y = 0;
+var z = 0;
+var Ax = 0;
+var Ay = 0;
+var Az = 0;
+var scale = 0.1;
+var sideoption = THREE.BackSide;
+var cube = "";
+
+var render = function() {
+    requestAnimationFrame(render);
+
+    //Turn the banana
+     camera.rotation.y = Ay;
+     camera.rotation.z = Az;
+     camera.rotation.x = Ax;
+     camera.position.set(x, y, z);
+
+
+    renderer.render(scene, camera);
+};
+
+
+
+var signcube = function(obj) {
+    var manager = new THREE.LoadingManager();
+    var loader = new THREE.OBJLoader(manager);
+    loader.load(obj, cubeload);
+};
+
+var cubeload = function(object) {
+    object.traverse(function(child) {
+        //This allow us to check if the children is an instance of the Mesh constructor
+        if (child instanceof THREE.Mesh) {
+            //Sometimes there are some vertex normals missing in the .obj files, ThreeJs will compute them
+            child.geometry.computeVertexNormals();
+        }
+    });
+    //Add the 3D object in the scene
+    //scene.add(banana);
+    render();
+	var geometry=object.children[0].geometry;
+	var material=object.children[0].material;
+	var cube = new THREE.Mesh(geometry, material);
+	mesh.material.wireframe  = true; 
+	scene.add(mesh);
+};
+
+var hidecube = function() {
+    scene.remove(cube);
+};
+
+var captured = function(){
+      renderer.render(scene, camera);
+						let dataURL = '';
+						dataURL = renderer.domElement.toDataURL("image/PNG");
+      window.AppInventor.setWebViewString(dataURL);
+};
+
+
+
+
+
+
+
+        </script>
+    </head>
+    
+    <body onload="init()">
+        <canvas id="scene"></canvas>
+
+    </body>
+</html>

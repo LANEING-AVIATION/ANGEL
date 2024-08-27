@@ -1,0 +1,36 @@
+[{
+ "categoryString": "EXTENSION",
+ "dateBuilt": "2020-09-26T13:33:23+0530",
+ "nonVisible": "true",
+ "iconName": "",
+ "methods": [{
+  "deprecated": "false",
+  "name": "BlurLayoutBackground",
+  "description": "Method for BlurLayoutBackground",
+  "params": [
+   {
+    "name": "bottomlayout",
+    "type": "component"
+   },
+   {
+    "name": "toplayout",
+    "type": "component"
+   },
+   {
+    "name": "radius",
+    "type": "number"
+   }
+  ]
+ }],
+ "blockProperties": [],
+ "helpUrl": "",
+ "type": "com.varsha.blur.BlurLayout",
+ "androidMinSdk": 7,
+ "version": "1",
+ "external": "true",
+ "showOnPalette": "true",
+ "name": "BlurLayout",
+ "helpString": "Component for BlurLayout",
+ "properties": [],
+ "events": []
+}]

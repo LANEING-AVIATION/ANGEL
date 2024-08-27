@@ -1,0 +1,106 @@
+[{
+ "categoryString": "EXTENSION",
+ "dateBuilt": "2020-06-05T14:32:23+0530",
+ "nonVisible": "true",
+ "iconName": "https://img.icons8.com/dusk/50/000000/bread.png",
+ "methods": [{
+  "deprecated": "false",
+  "name": "ShowToast",
+  "description": "Method for ShowToast",
+  "params": [{
+   "name": "arrangement",
+   "type": "component"
+  }]
+ }],
+ "blockProperties": [
+  {
+   "rw": "invisible",
+   "deprecated": "false",
+   "name": "BgColor",
+   "description": "Property for BgColor",
+   "type": "number"
+  },
+  {
+   "rw": "read-write",
+   "deprecated": "false",
+   "name": "Duration",
+   "description": "Property for Duration",
+   "type": "number"
+  },
+  {
+   "rw": "read-write",
+   "deprecated": "false",
+   "name": "Gravity",
+   "description": "Property for Gravity",
+   "type": "number"
+  },
+  {
+   "rw": "read-write",
+   "deprecated": "false",
+   "name": "RoundCorners",
+   "description": "Property for RoundCorners",
+   "type": "boolean"
+  },
+  {
+   "rw": "read-write",
+   "deprecated": "false",
+   "name": "XAxis",
+   "description": "Property for XAxis",
+   "type": "number"
+  },
+  {
+   "rw": "read-write",
+   "deprecated": "false",
+   "name": "YAxis",
+   "description": "Property for YAxis",
+   "type": "number"
+  }
+ ],
+ "helpUrl": "",
+ "type": "com.krishjha07.CustomToast.CustomToast",
+ "androidMinSdk": 7,
+ "version": "2",
+ "external": "true",
+ "showOnPalette": "true",
+ "name": "CustomToast",
+ "helpString": "Create A CustomToast With A Given Arrangement.<br><a href=\"developer.android.com/reference/android/view/Gravity\">Gravity Integers<\/a><br> Use 0 for short duration or use 1 for long duration of toast",
+ "properties": [
+  {
+   "defaultValue": "&H00000000",
+   "name": "BgColor",
+   "editorArgs": [],
+   "editorType": "color"
+  },
+  {
+   "defaultValue": "0",
+   "name": "Duration",
+   "editorArgs": [],
+   "editorType": "integer"
+  },
+  {
+   "defaultValue": "180",
+   "name": "Gravity",
+   "editorArgs": [],
+   "editorType": "integer"
+  },
+  {
+   "defaultValue": "true",
+   "name": "RoundCorners",
+   "editorArgs": [],
+   "editorType": "boolean"
+  },
+  {
+   "defaultValue": "0",
+   "name": "XAxis",
+   "editorArgs": [],
+   "editorType": "integer"
+  },
+  {
+   "defaultValue": "20",
+   "name": "YAxis",
+   "editorArgs": [],
+   "editorType": "integer"
+  }
+ ],
+ "events": []
+}]

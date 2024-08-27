@@ -1,0 +1,24 @@
+[{
+ "categoryString": "EXTENSION",
+ "nonVisible": "true",
+ "iconName": "https://w7.pngwing.com/pngs/745/612/png-transparent-rocket-launch-spacecraft-launch-pad-computer-icons-launch-icon-spacecraft-rocket-launch-transport.png",
+ "methods": [{
+  "deprecated": "false",
+  "name": "openApp",
+  "description": "Launches the application.",
+  "params": [{
+   "name": "packageName",
+   "type": "text"
+  }]
+ }],
+ "blockProperties": [],
+ "helpUrl": "",
+ "type": "com.appybuilder.shivamblog100.AppLauncher.AppLauncher",
+ "version": "1",
+ "external": "true",
+ "showOnPalette": "true",
+ "name": "AppLauncher",
+ "helpString": "This extension will help you in launching app just by using the //package name.",
+ "properties": [],
+ "events": []
+}]

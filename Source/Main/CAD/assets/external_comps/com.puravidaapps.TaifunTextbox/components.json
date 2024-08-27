@@ -1,0 +1,194 @@
+[{
+ "categoryString": "EXTENSION",
+ "dateBuilt": "2019-07-30T16:57:09-0600",
+ "nonVisible": "true",
+ "iconName": "https://puravidaapps.com/images/taifun16.png",
+ "methods": [
+  {
+   "deprecated": "false",
+   "name": "CurrentPosition",
+   "description": "Return current position of cursor in textbox.",
+   "params": [{
+    "name": "textBox",
+    "type": "component"
+   }],
+   "returnType": "number"
+  },
+  {
+   "deprecated": "false",
+   "name": "GetHighlightColor",
+   "description": "Get Highlight color.",
+   "params": [{
+    "name": "textBox",
+    "type": "component"
+   }],
+   "returnType": "number"
+  },
+  {
+   "deprecated": "false",
+   "name": "HighlightText",
+   "description": "Highlight text.",
+   "params": [
+    {
+     "name": "textBox",
+     "type": "component"
+    },
+    {
+     "name": "fromPosition",
+     "type": "number"
+    },
+    {
+     "name": "toPosition",
+     "type": "number"
+    }
+   ]
+  },
+  {
+   "deprecated": "false",
+   "name": "Length",
+   "description": "Return length of textbox.",
+   "params": [{
+    "name": "textBox",
+    "type": "component"
+   }],
+   "returnType": "number"
+  },
+  {
+   "deprecated": "false",
+   "name": "SetBackgroundImage",
+   "description": "Set background image.You can use a relative path or a complete path to the image file. To use a relative path, just prefix the imageFileName with /. For instance /myFile.jpg will set the file /mnt/sdcard/myFile.jpg. If a fileName starts with file:/// you can specify a complete path to the file. To use an image file from the assets, prefix the imageFileName with //.",
+   "params": [
+    {
+     "name": "textBox",
+     "type": "component"
+    },
+    {
+     "name": "imageFileName",
+     "type": "text"
+    }
+   ]
+  },
+  {
+   "deprecated": "false",
+   "name": "SetCursorAt",
+   "description": "Set cursor at a specific position in textbox.",
+   "params": [
+    {
+     "name": "textBox",
+     "type": "component"
+    },
+    {
+     "name": "position",
+     "type": "number"
+    }
+   ]
+  },
+  {
+   "deprecated": "false",
+   "name": "SetCursorAtEnd",
+   "description": "Set cursor at end position in textbox.",
+   "params": [{
+    "name": "textBox",
+    "type": "component"
+   }]
+  },
+  {
+   "deprecated": "false",
+   "name": "SetHighlightColor",
+   "description": "Set Highlight color.",
+   "params": [
+    {
+     "name": "textBox",
+     "type": "component"
+    },
+    {
+     "name": "color",
+     "type": "number"
+    }
+   ]
+  },
+  {
+   "deprecated": "false",
+   "name": "SetSoftKeyboardIconEnter",
+   "description": "Set Icon for Enter button on soft keyboard for a textbox. Possible values for icon: DONE, GO, NEXT, PREVIOUS, SEARCH, SEND",
+   "params": [
+    {
+     "name": "textBox",
+     "type": "component"
+    },
+    {
+     "name": "icon",
+     "type": "text"
+    }
+   ]
+  },
+  {
+   "deprecated": "false",
+   "name": "StartEnterPressedListener",
+   "description": "Start Enter Pressed Listener for a textbox.",
+   "params": [{
+    "name": "textBox",
+    "type": "component"
+   }]
+  },
+  {
+   "deprecated": "false",
+   "name": "StartTextChangedListener",
+   "description": "Start Text Changed listener.",
+   "params": [{
+    "name": "textBox",
+    "type": "component"
+   }]
+  },
+  {
+   "deprecated": "false",
+   "name": "StopTextChangedListener",
+   "description": "Stop Text Changed listener.",
+   "params": [{
+    "name": "textBox",
+    "type": "component"
+   }]
+  }
+ ],
+ "blockProperties": [{
+  "rw": "read-write",
+  "deprecated": "false",
+  "name": "SuppressWarnings",
+  "description": "whether Warnings should be suppressed",
+  "type": "boolean"
+ }],
+ "helpUrl": "https://puravidaapps.com/textbox.php",
+ "type": "com.puravidaapps.TaifunTextbox",
+ "androidMinSdk": 7,
+ "version": "6",
+ "external": "true",
+ "showOnPalette": "true",
+ "name": "TaifunTextbox",
+ "helpString": "Textbox extension. Version 6 as of 2019-07-30.",
+ "properties": [{
+  "defaultValue": "false",
+  "name": "SuppressWarnings",
+  "editorArgs": [],
+  "editorType": "boolean"
+ }],
+ "events": [
+  {
+   "deprecated": "false",
+   "name": "AfterTextChanged",
+   "description": "Event indicating that text has been changed.",
+   "params": [{
+    "name": "component",
+    "type": "any"
+   }]
+  },
+  {
+   "deprecated": "false",
+   "name": "EnterPressed",
+   "description": "Event indicating that enter in textbox has been pressed.",
+   "params": [{
+    "name": "component",
+    "type": "any"
+   }]
+  }
+ ]
+}]
